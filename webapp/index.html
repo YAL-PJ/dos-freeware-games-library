@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>A:\GAMES — DOS Game Library</title>
+  <title>A:\GAMES — DOS Freeware Library</title>
   <meta name="description"
-    content="Browse, search and play DOS games from the A:\GAMES catalog. Freeware and shareware classics ready to play in your browser." />
+    content="Browse and play hundreds of free DOS games. Freeware and shareware classics from the golden age of PC gaming." />
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4BE;</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,46 +23,75 @@
       <p class="tagline">DOS Freeware &amp; Shareware Library</p>
     </div>
     <div class="top-bar-actions">
+      <span id="gameStats" class="game-stats"></span>
       <button id="openPlayerBtn" class="ghost-btn" type="button">Open C:\PLAY</button>
     </div>
   </header>
 
   <main class="library-page">
-    <div class="library-panel">
-      <div class="library-header">
-        <div class="search-box">
-          <input id="gameSearch" type="search" placeholder="Search library..." aria-label="Search games" />
-        </div>
+    <aside class="sidebar">
+      <div class="search-box">
+        <input id="gameSearch" type="search" placeholder="Search games..." aria-label="Search games"
+          autocomplete="off" />
       </div>
 
-      <div class="library-toolbar">
-        <div id="gameQuickFilters" class="quick-filters" aria-label="Quick game filters"></div>
-        <div class="library-row">
-          <label class="library-sort" for="gameSort">Sort</label>
-          <select id="gameSort">
-            <option value="name">Name</option>
-            <option value="year">Year</option>
-            <option value="source">Source</option>
-          </select>
-          <button id="randomPlayBtn" class="action-btn" type="button">Random Play</button>
-        </div>
-        <p class="small-note">Showing <strong id="visibleGamesCount">0</strong> games &bull; <strong
-            id="instantGamesCount">0</strong> 1-click ready.</p>
+      <div class="filter-section">
+        <p class="filter-heading">Genre</p>
+        <div id="genreFilters" class="filter-chips"></div>
       </div>
 
-      <div class="trusted-sites" aria-label="Trusted DOS and archive sites">
-        <p class="section-title">Trusted DOS &amp; archive sites</p>
-        <div class="trusted-sites__links">
+      <div class="filter-section">
+        <p class="filter-heading">Decade</p>
+        <div id="decadeFilters" class="filter-chips"></div>
+      </div>
+
+      <div class="filter-section">
+        <p class="filter-heading">License</p>
+        <div id="licenseFilters" class="filter-chips"></div>
+      </div>
+
+      <div class="filter-section">
+        <p class="filter-heading">Status</p>
+        <div id="statusFilters" class="filter-chips"></div>
+      </div>
+
+      <div class="sort-row">
+        <label for="gameSort">Sort by</label>
+        <select id="gameSort">
+          <option value="name">Name</option>
+          <option value="year-desc">Year (newest)</option>
+          <option value="year-asc">Year (oldest)</option>
+          <option value="genre">Genre</option>
+        </select>
+      </div>
+
+      <button id="randomPlayBtn" class="action-btn full-width" type="button">Random Game</button>
+
+      <div class="trusted-sites">
+        <p class="filter-heading">Trusted Sources</p>
+        <div class="trusted-links">
           <a href="https://www.dosgamesarchive.com/" target="_blank" rel="noopener noreferrer">DOS Games Archive</a>
           <a href="https://www.classicdosgames.com/" target="_blank" rel="noopener noreferrer">Classic DOS Games</a>
           <a href="https://archive.org/details/softwarelibrary_msdos_games" target="_blank"
-            rel="noopener noreferrer">Internet Archive (MS-DOS)</a>
+            rel="noopener noreferrer">Internet Archive</a>
           <a href="https://www.myabandonware.com/" target="_blank" rel="noopener noreferrer">MyAbandonware</a>
         </div>
       </div>
+    </aside>
+
+    <section class="content">
+      <div class="content-bar">
+        <p id="resultsInfo" class="results-info">Loading library...</p>
+        <button id="clearFilters" class="ghost-btn clear-btn" type="button" hidden>Clear filters</button>
+      </div>
 
       <div id="gameGrid" class="game-grid"></div>
-    </div>
+
+      <div id="emptyState" class="empty-state" hidden>
+        <p class="empty-title">No games found</p>
+        <p class="empty-subtitle">Try adjusting your search or filters.</p>
+      </div>
+    </section>
   </main>
 
   <script type="module" src="./app.js"></script>

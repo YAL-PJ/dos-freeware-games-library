@@ -1,14 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import AdmZip from "adm-zip";
-import { ensureDir, writeJson } from "./utils.mjs";
-
-async function downloadFile(url) {
-  const response = await fetch(url, { redirect: "follow" });
-  if (!response.ok) throw new Error(`Download failed: ${url} (${response.status})`);
-  const arrayBuffer = await response.arrayBuffer();
-  return Buffer.from(arrayBuffer);
-}
+import { downloadBuffer, ensureDir, writeJson } from "./utils.mjs";
 
 export async function buildBundles({ catalog, distDir, workDir, dosboxTemplatePath }) {
   await ensureDir(distDir);
@@ -23,7 +16,7 @@ export async function buildBundles({ catalog, distDir, workDir, dosboxTemplatePa
     }
 
     try {
-      const archiveBytes = await downloadFile(entry.sourceDownloadUrl);
+      const archiveBytes = await downloadBuffer(entry.sourceDownloadUrl);
       const sourceZip = new AdmZip(archiveBytes);
 
       const bundleZip = new AdmZip();

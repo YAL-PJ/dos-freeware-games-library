@@ -7,16 +7,13 @@
     "category": "puzzle",
     "license": "Freeware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/game/alex-the-allegator-2/",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/download/alex-the-allegator-2/",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/alex-the-allegator-2",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/download/alex-the-allegator-2",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/alex2-1.gif",
     "metadataOnly": true,
-    "status": "failed",
+    "status": "metadata-only",
     "downloadUrl": "",
-    "tags": [
-      "freeware",
-      "dos",
-      "starter"
-    ]
+    "tags": ["freeware", "dos", "starter"]
   },
   {
     "id": "agi-tetris",
@@ -26,35 +23,29 @@
     "category": "puzzle",
     "license": "Freeware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/game/agi-tetris/",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/download/agi-tetris/",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/agi-tetris",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/download/agi-tetris",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/agitetris-1.png",
     "metadataOnly": true,
-    "status": "failed",
+    "status": "metadata-only",
     "downloadUrl": "",
-    "tags": [
-      "freeware",
-      "dos",
-      "starter"
-    ]
+    "tags": ["freeware", "dos", "starter"]
   },
   {
     "id": "bio-menace",
     "title": "Bio Menace",
     "year": 1993,
-    "genre": "Platformer",
-    "category": "platformer",
+    "genre": "Platform",
+    "category": "platform",
     "license": "Freeware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/game/bio-menace/",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/download/bio-menace/",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/bio-menace",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/download/bio-menace",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/biomenace-1.gif",
     "metadataOnly": true,
-    "status": "failed",
+    "status": "metadata-only",
     "downloadUrl": "",
-    "tags": [
-      "freeware",
-      "dos",
-      "starter"
-    ]
+    "tags": ["freeware", "dos", "starter"]
   },
   {
     "id": "overkill",
@@ -64,16 +55,13 @@
     "category": "shooter",
     "license": "Freeware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/game/overkill/",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/download/overkill/",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/overkill",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/download/overkill",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/overkill-1.gif",
     "metadataOnly": true,
-    "status": "failed",
+    "status": "metadata-only",
     "downloadUrl": "",
-    "tags": [
-      "freeware",
-      "dos",
-      "starter"
-    ]
+    "tags": ["freeware", "dos", "starter"]
   },
   {
     "id": "supaplex",
@@ -83,34 +71,28 @@
     "category": "puzzle",
     "license": "Freeware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/game/supaplex/",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/download/supaplex/",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/supaplex",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/download/supaplex",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/supaplex-1.gif",
     "metadataOnly": true,
-    "status": "failed",
+    "status": "metadata-only",
     "downloadUrl": "",
-    "tags": [
-      "freeware",
-      "dos",
-      "starter"
-    ]
+    "tags": ["freeware", "dos", "starter"]
   },
   {
     "id": "liero",
     "title": "Liero",
     "year": 1998,
-    "genre": "Action",
-    "category": "action",
+    "genre": "Shooter",
+    "category": "shooter",
     "license": "Freeware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/game/liero/",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/download/liero/",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/liero",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=124",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/liero1.gif",
     "metadataOnly": true,
-    "status": "failed",
+    "status": "metadata-only",
     "downloadUrl": "",
-    "tags": [
-      "freeware",
-      "dos",
-      "starter"
-    ]
+    "tags": ["freeware", "dos", "starter"]
   }
 ]
