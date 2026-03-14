@@ -1,0 +1,17 @@
+{
+  "name": "cplay-library-bot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node src/run-bot.mjs",
+    "scrape": "node src/run-bot.mjs --mode=scrape",
+    "build": "node src/run-bot.mjs --mode=build",
+    "library": "node src/run-bot.mjs --mode=library"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "cheerio": "^1.0.0",
+    "slugify": "^1.6.6"
+  }
+}

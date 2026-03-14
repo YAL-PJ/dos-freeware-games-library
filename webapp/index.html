@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A:\GAMES — DOS Game Library</title>
+  <meta name="description"
+    content="Browse, search and play DOS games from the A:\GAMES catalog. Freeware and shareware classics ready to play in your browser." />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F4BE;</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="top-bar">
+    <div class="brand-wrap">
+      <p class="brand">A:\GAMES <span>v1.0</span></p>
+      <p class="tagline">DOS Freeware &amp; Shareware Library</p>
+    </div>
+    <div class="top-bar-actions">
+      <button id="openPlayerBtn" class="ghost-btn" type="button">Open C:\PLAY</button>
+    </div>
+  </header>
+
+  <main class="library-page">
+    <div class="library-panel">
+      <div class="library-header">
+        <div class="search-box">
+          <input id="gameSearch" type="search" placeholder="Search library..." aria-label="Search games" />
+        </div>
+      </div>
+
+      <div class="library-toolbar">
+        <div id="gameQuickFilters" class="quick-filters" aria-label="Quick game filters"></div>
+        <div class="library-row">
+          <label class="library-sort" for="gameSort">Sort</label>
+          <select id="gameSort">
+            <option value="name">Name</option>
+            <option value="year">Year</option>
+            <option value="source">Source</option>
+          </select>
+          <button id="randomPlayBtn" class="action-btn" type="button">Random Play</button>
+        </div>
+        <p class="small-note">Showing <strong id="visibleGamesCount">0</strong> games &bull; <strong
+            id="instantGamesCount">0</strong> 1-click ready.</p>
+      </div>
+
+      <div class="trusted-sites" aria-label="Trusted DOS and archive sites">
+        <p class="section-title">Trusted DOS &amp; archive sites</p>
+        <div class="trusted-sites__links">
+          <a href="https://www.dosgamesarchive.com/" target="_blank" rel="noopener noreferrer">DOS Games Archive</a>
+          <a href="https://www.classicdosgames.com/" target="_blank" rel="noopener noreferrer">Classic DOS Games</a>
+          <a href="https://archive.org/details/softwarelibrary_msdos_games" target="_blank"
+            rel="noopener noreferrer">Internet Archive (MS-DOS)</a>
+          <a href="https://www.myabandonware.com/" target="_blank" rel="noopener noreferrer">MyAbandonware</a>
+        </div>
+      </div>
+
+      <div id="gameGrid" class="game-grid"></div>
+    </div>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+
+</html>
