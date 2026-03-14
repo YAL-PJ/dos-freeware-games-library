@@ -1,4 +1,3 @@
-import path from "node:path";
 import { writeJson } from "./utils.mjs";
 
 export async function generateLibraryJson({ manifest, outputPath, bundleBaseUrl }) {
@@ -15,6 +14,7 @@ export async function generateLibraryJson({ manifest, outputPath, bundleBaseUrl 
       source: entry.source,
       sourceUrl: entry.sourceUrl,
       sourceDownloadUrl: entry.sourceDownloadUrl,
+      screenshot: entry.screenshot || "",
       metadataOnly,
       status: entry.status,
       downloadUrl,

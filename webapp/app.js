@@ -1,208 +1,381 @@
 /* ── A:\GAMES — Library app.js ──────────────────────────────────── */
 
-// ── DOM References ────────────────────────────────────────────────
+// ── Configuration ────────────────────────────────────────────────
+// The library can load data from multiple sources:
+// 1. Standalone: loads ../library.json (served from this repo)
+// 2. From CPlay: pass ?library=URL to override the data source
+// 3. Embedded: parent can postMessage({ type: "loadLibrary", url })
+
+const params = new URLSearchParams(window.location.search);
+const LIBRARY_URL = params.get("library") || "../library.json";
+const CPLAY_URL = params.get("cplay") || null;
+
+// ── DOM References ───────────────────────────────────────────────
 const dom = {
   gameGrid: document.getElementById("gameGrid"),
-  gameSearchInput: document.getElementById("gameSearch"),
-  gameQuickFilters: document.getElementById("gameQuickFilters"),
+  gameSearch: document.getElementById("gameSearch"),
+  genreFilters: document.getElementById("genreFilters"),
+  decadeFilters: document.getElementById("decadeFilters"),
+  licenseFilters: document.getElementById("licenseFilters"),
+  statusFilters: document.getElementById("statusFilters"),
   gameSort: document.getElementById("gameSort"),
   randomPlayBtn: document.getElementById("randomPlayBtn"),
-  visibleGamesCount: document.getElementById("visibleGamesCount"),
-  instantGamesCount: document.getElementById("instantGamesCount"),
+  resultsInfo: document.getElementById("resultsInfo"),
+  clearFilters: document.getElementById("clearFilters"),
+  emptyState: document.getElementById("emptyState"),
+  gameStats: document.getElementById("gameStats"),
   openPlayerBtn: document.getElementById("openPlayerBtn"),
 };
 
-const BASE_GAMES = [
-  { id: "doom-shareware", name: "DOOM (Shareware)", source: "js-dos", category: "fps", year: 1993, instantPlay: true, icon: "", links: [{ type: "jsdos", label: "Play", url: "https://v8.js-dos.com/bundles/doom.jsdos" }] },
-  { id: "doom2", name: "DOOM II", source: "dos-zone", category: "fps", year: 1994, instantPlay: true, icon: "", links: [{ type: "jsdos", label: "Play", url: "https://cdn.dos.zone/custom/dos/doom2.jsdos" }] },
-  { id: "wolf3d", name: "Wolfenstein 3D", source: "dos-zone", category: "fps", year: 1992, instantPlay: true, icon: "", links: [{ type: "jsdos", label: "Play", url: "https://cdn.dos.zone/original/2X/a/ac888d1660aa253f0ed53bd6c962c894125aaa19.jsdos" }] },
-  { id: "heretic", name: "Heretic", source: "dos-zone", category: "fps", year: 1994, instantPlay: true, icon: "", links: [{ type: "jsdos", label: "Play", url: "https://cdn.dos.zone/custom/dos/heretic.jsdos" }] },
-  { id: "prince-of-persia", name: "Prince of Persia", source: "dos-zone", category: "platformer", year: 1989, instantPlay: true, icon: "", links: [{ type: "jsdos", label: "Play", url: "https://cdn.dos.zone/original/2X/1/1179a7c9e05b1679333ed6db08e7884f6e86c155.jsdos" }] },
-  { id: "digger", name: "Digger", source: "js-dos", category: "arcade", year: 1983, instantPlay: true, icon: "", links: [{ type: "jsdos", label: "Play", url: "https://v8.js-dos.com/bundles/digger.jsdos" }] },
-  { id: "mortal-kombat", name: "Mortal Kombat", source: "dos-zone", category: "fighting", year: 1993, instantPlay: true, icon: "", links: [{ type: "jsdos", label: "Play", url: "https://cdn.dos.zone/original/2X/8/872f3668c36085d0b1ace46872145285364ee628.jsdos" }] },
-  { id: "tyrian-2000", name: "Tyrian 2000", source: "dos-zone", category: "shooter", year: 1999, instantPlay: true, icon: "", links: [{ type: "jsdos", label: "Play", url: "https://cdn.dos.zone/custom/dos/tyrian-2000.jsdos" }] },
-  { id: "sim-city", name: "SimCity", source: "dos-zone", category: "strategy", year: 1989, instantPlay: true, icon: "", links: [{ type: "jsdos", label: "Play", url: "https://cdn.dos.zone/original/2X/7/744842062905f72648a4d492ccc2526d039b3702.jsdos" }] },
-  { id: "nfs-se", name: "Need for Speed: SE", source: "dos-zone", category: "racing", year: 1996, instantPlay: true, icon: "", links: [{ type: "jsdos", label: "Play", url: "https://cdn.dos.zone/custom/dos/nfs.jsdos" }] },
-  { id: "lost-vikings", name: "The Lost Vikings", source: "dos-zone", category: "puzzle", year: 1992, instantPlay: true, icon: "", links: [{ type: "jsdos", label: "Play", url: "https://cdn.dos.zone/original/2X/1/1b063b2520052ebb504184667ac95e72423331de.jsdos" }] },
-  { id: "out-of-this-world", name: "Out of This World", source: "dos-zone", category: "cinematic", year: 1991, instantPlay: true, icon: "", links: [{ type: "jsdos", label: "Play", url: "https://cdn.dos.zone/original/2X/1/1031eb810e8b648fc5f777b3bd9cbc0187927fd4.jsdos" }] },
-  { id: "gta", name: "Grand Theft Auto", source: "dos-zone", category: "action", year: 1997, instantPlay: true, icon: "", links: [{ type: "jsdos", label: "Play", url: "https://cdn.dos.zone/custom/dos/gta-mobile.jsdos" }] },
-];
+// ── State ────────────────────────────────────────────────────────
+const state = {
+  games: [],
+  filters: { genre: "all", decade: "all", license: "all", status: "all" },
+  sortBy: "name",
+  searchQuery: ""
+};
 
-const QUICK_FILTERS = [
-  { id: "all", label: "All", predicate: () => true },
-  { id: "instant", label: "1-Click", predicate: g => g.instantPlay },
-  { id: "fps", label: "FPS", predicate: g => g.category === "fps" },
-  { id: "racing", label: "Racing", predicate: g => g.category === "racing" },
-  { id: "retro", label: "80s/90s", predicate: g => g.year <= 1995 },
-];
+const FALLBACK_ICON = "data:image/svg+xml," + encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80">' +
+  '<rect width="120" height="80" fill="#0d1117"/>' +
+  '<rect x="10" y="8" width="100" height="64" fill="#1a1f2e" rx="2"/>' +
+  '<text y="48" x="60" text-anchor="middle" font-family="monospace" font-size="14" fill="#333">DOS</text>' +
+  '</svg>'
+);
 
-const FALLBACK_ICON = "data:image/svg+xml," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#111"/><text y="50%" x="50%" dominant-baseline="middle" text-anchor="middle" font-size="50" fill="#333">?</text></svg>');
+// ── Data loading ─────────────────────────────────────────────────
 
-const state = { activeFilter: "all", sortBy: "name" };
-let allGames = [...BASE_GAMES];
+function normalizeEntry(entry) {
+  const title = String(entry.title || entry.name || "").trim();
+  if (!title) return null;
 
-const getPlayableLink = game => game.links.find(link => link.type === "jsdos" || link.type === "zip") || game.links[0];
-const log = (...a) => console.log("[AGAMES]", ...a);
-const logError = (...a) => console.error("[AGAMES ERROR]", ...a);
-
-// ── Library data ──────────────────────────────────────────────────
-
-function normalizeLibraryEntry(entry) {
-  const name = String(entry.title || entry.name || "").trim();
-  if (!name) return null;
   const downloadUrl = String(entry.downloadUrl || "").trim();
   const sourceUrl = String(entry.sourceUrl || "").trim();
-  const links = [];
-  if (downloadUrl) links.push({ type: "jsdos", label: "Play", url: downloadUrl });
-  else if (sourceUrl) links.push({ type: "external", label: "Info", url: sourceUrl });
-  const id = String(entry.id || name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""));
+  const hasBundle = Boolean(downloadUrl);
+
   return {
-    id: id || `game-${Math.random().toString(16).slice(2)}`,
-    name,
-    source: String(entry.source || "community-library"),
-    category: String(entry.category || entry.genre || "other").toLowerCase().replace(/[^a-z0-9]+/g, "-") || "other",
+    id: entry.id || title.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+    title,
+    source: String(entry.source || "unknown"),
+    genre: String(entry.genre || "Other"),
+    category: String(entry.category || entry.genre || "other").toLowerCase().replace(/[^a-z0-9]+/g, "-"),
     year: Number(entry.year) || 0,
-    instantPlay: Boolean(downloadUrl),
-    icon: String(entry.icon || ""),
-    links,
-    license: entry.license || ""
+    license: String(entry.license || "Unknown"),
+    screenshot: String(entry.screenshot || ""),
+    sourceUrl,
+    downloadUrl,
+    hasBundle,
+    metadataOnly: Boolean(entry.metadataOnly),
+    status: entry.status || (hasBundle ? "bundled" : "metadata-only"),
+    tags: entry.tags || []
   };
 }
 
-async function loadExternalLibrary() {
+async function loadLibrary(url) {
   try {
-    const response = await fetch("../library.json", { cache: "no-store" });
+    const response = await fetch(url, { cache: "no-store" });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
     if (!Array.isArray(data)) throw new Error("library.json is not an array");
-    const imported = data.map(normalizeLibraryEntry).filter(Boolean);
-    const merged = [...BASE_GAMES];
-    const seen = new Set(merged.map(g => g.id));
-    imported.forEach(game => { if (!seen.has(game.id)) { seen.add(game.id); merged.push(game); } });
-    allGames = merged;
-  } catch (error) {
-    logError("Failed to load library.json", error);
-    allGames = [...BASE_GAMES];
+    return data.map(normalizeEntry).filter(Boolean);
+  } catch (err) {
+    console.error("[AGAMES] Failed to load library:", err);
+    return [];
   }
 }
 
 // ── Filtering & sorting ──────────────────────────────────────────
 
-function setupFilterUI() {
-  if (!dom.gameQuickFilters) return;
-  dom.gameQuickFilters.innerHTML = "";
-  QUICK_FILTERS.forEach(filter => {
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = `quick-filter ${filter.id === state.activeFilter ? "active" : ""}`;
-    btn.textContent = filter.label;
-    btn.addEventListener("click", () => { state.activeFilter = filter.id; renderGameGrid(dom.gameSearchInput?.value || ""); });
-    dom.gameQuickFilters.appendChild(btn);
+function getDecade(year) {
+  if (!year || year < 1980) return "Other";
+  return `${Math.floor(year / 10) * 10}s`;
+}
+
+function buildFilterOptions() {
+  const genres = new Set();
+  const decades = new Set();
+  const licenses = new Set();
+
+  state.games.forEach(g => {
+    if (g.genre) genres.add(g.genre);
+    if (g.year) decades.add(getDecade(g.year));
+    if (g.license) licenses.add(g.license);
+  });
+
+  renderFilterChips(dom.genreFilters, "genre", [...genres].sort());
+  renderFilterChips(dom.decadeFilters, "decade", [...decades].sort());
+  renderFilterChips(dom.licenseFilters, "license", [...licenses].sort());
+  renderFilterChips(dom.statusFilters, "status", ["Playable", "Info Only"]);
+}
+
+function renderFilterChips(container, filterKey, options) {
+  if (!container) return;
+  container.innerHTML = "";
+
+  const allBtn = createChip("All", filterKey, "all");
+  container.appendChild(allBtn);
+
+  options.forEach(opt => {
+    container.appendChild(createChip(opt, filterKey, opt));
   });
 }
 
-function getFilteredGames(filterText = "") {
-  const query = filterText.toLowerCase().trim();
-  const quickFilter = QUICK_FILTERS.find(f => f.id === state.activeFilter) || QUICK_FILTERS[0];
-  let games = allGames.filter(g => quickFilter.predicate(g));
-  if (query) {
-    games = games.filter(g => [g.name, g.source, g.category, String(g.year), ...g.links.map(l => `${l.label} ${l.type}`)].join(" ").toLowerCase().includes(query));
-  }
-  games.sort((a, b) => {
-    if (state.sortBy === "year") return b.year - a.year;
-    if (state.sortBy === "source") return a.source.localeCompare(b.source);
-    return a.name.localeCompare(b.name);
+function createChip(label, filterKey, value) {
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = `chip ${state.filters[filterKey] === value ? "active" : ""}`;
+  btn.textContent = label;
+  btn.addEventListener("click", () => {
+    state.filters[filterKey] = value;
+    render();
   });
+  return btn;
+}
+
+function getFilteredGames() {
+  const { genre, decade, license, status } = state.filters;
+  const query = state.searchQuery.toLowerCase();
+
+  let games = state.games;
+
+  if (genre !== "all") {
+    games = games.filter(g => g.genre === genre);
+  }
+  if (decade !== "all") {
+    games = games.filter(g => getDecade(g.year) === decade);
+  }
+  if (license !== "all") {
+    games = games.filter(g => g.license === license);
+  }
+  if (status !== "all") {
+    if (status === "Playable") {
+      games = games.filter(g => g.hasBundle);
+    } else {
+      games = games.filter(g => !g.hasBundle);
+    }
+  }
+  if (query) {
+    games = games.filter(g =>
+      g.title.toLowerCase().includes(query) ||
+      g.genre.toLowerCase().includes(query) ||
+      g.source.toLowerCase().includes(query) ||
+      String(g.year).includes(query)
+    );
+  }
+
+  games.sort((a, b) => {
+    switch (state.sortBy) {
+      case "year-desc": return (b.year || 0) - (a.year || 0);
+      case "year-asc": return (a.year || 0) - (b.year || 0);
+      case "genre": return a.genre.localeCompare(b.genre) || a.title.localeCompare(b.title);
+      default: return a.title.localeCompare(b.title);
+    }
+  });
+
   return games;
+}
+
+// ── Game cards ────────────────────────────────────────────────────
+
+function createGameCard(game) {
+  const card = document.createElement("article");
+  card.className = "game-card";
+
+  // thumbnail
+  const thumbWrap = document.createElement("div");
+  thumbWrap.className = "card-thumb";
+  const img = document.createElement("img");
+  img.src = game.screenshot || FALLBACK_ICON;
+  img.alt = game.title;
+  img.loading = "lazy";
+  img.addEventListener("error", () => { img.src = FALLBACK_ICON; }, { once: true });
+  thumbWrap.appendChild(img);
+
+  // badge overlay
+  if (game.hasBundle) {
+    const badge = document.createElement("span");
+    badge.className = "card-badge badge-ready";
+    badge.textContent = "PLAY";
+    thumbWrap.appendChild(badge);
+  }
+
+  card.appendChild(thumbWrap);
+
+  // info
+  const info = document.createElement("div");
+  info.className = "card-info";
+
+  const title = document.createElement("h3");
+  title.className = "card-title";
+  title.textContent = game.title;
+  info.appendChild(title);
+
+  const meta = document.createElement("p");
+  meta.className = "card-meta";
+  meta.textContent = [game.genre, game.year || "", game.license].filter(Boolean).join(" \u00B7 ");
+  info.appendChild(meta);
+
+  card.appendChild(info);
+
+  // actions
+  const actions = document.createElement("div");
+  actions.className = "card-actions";
+
+  if (game.hasBundle) {
+    const playBtn = document.createElement("button");
+    playBtn.type = "button";
+    playBtn.className = "btn-play";
+    playBtn.textContent = "Play";
+    playBtn.addEventListener("click", e => { e.stopPropagation(); launchGame(game); });
+    actions.appendChild(playBtn);
+  }
+
+  if (game.sourceUrl) {
+    const infoBtn = document.createElement("a");
+    infoBtn.href = game.sourceUrl;
+    infoBtn.className = "btn-info";
+    infoBtn.textContent = "Info";
+    infoBtn.target = "_blank";
+    infoBtn.rel = "noopener noreferrer";
+    infoBtn.addEventListener("click", e => e.stopPropagation());
+    actions.appendChild(infoBtn);
+  }
+
+  card.appendChild(actions);
+
+  card.addEventListener("click", () => {
+    if (game.hasBundle) launchGame(game);
+    else if (game.sourceUrl) window.open(game.sourceUrl, "_blank", "noopener,noreferrer");
+  });
+
+  return card;
 }
 
 // ── Game launch ──────────────────────────────────────────────────
 
 function launchGame(game) {
-  const playableLink = getPlayableLink(game);
-  if (!playableLink) return;
+  if (!game.downloadUrl) return;
 
-  if (playableLink.type === "external") {
-    window.open(playableLink.url, "_blank", "noopener,noreferrer");
+  // if we know CPlay's URL, open the game in CPlay
+  if (CPLAY_URL) {
+    const url = new URL(CPLAY_URL);
+    url.searchParams.set("bundle", game.downloadUrl);
+    window.open(url.toString(), "_blank", "noopener");
     return;
   }
 
-  // TODO: integrate with C:\PLAY player or embed js-dos here
-  // For now, open the bundle URL directly
-  window.open(playableLink.url, "_blank", "noopener,noreferrer");
-}
-
-// ── Game cards & grid ────────────────────────────────────────────
-
-function createGameCard(game) {
-  const card = document.createElement("article"); card.className = "game-card";
-
-  const iconWrap = document.createElement("div"); iconWrap.className = "game-icon-container";
-  const img = document.createElement("img"); img.src = game.icon || FALLBACK_ICON; img.className = "game-thumb"; img.alt = game.name + " cover";
-  img.addEventListener("error", () => { img.src = FALLBACK_ICON; }, { once: true });
-  iconWrap.appendChild(img); card.appendChild(iconWrap);
-
-  const label = document.createElement("span"); label.className = "game-label"; label.textContent = game.name; card.appendChild(label);
-  const source = document.createElement("span"); source.className = "game-source"; source.textContent = `${game.source} • ${game.year}`; card.appendChild(source);
-  const badge = document.createElement("span"); badge.className = "game-badge " + (game.instantPlay ? "badge-instant" : "badge-manual"); badge.textContent = game.instantPlay ? "Ready" : "Manual"; card.appendChild(badge);
-
-  const playableLink = getPlayableLink(game);
-  if (playableLink?.type === "jsdos" || playableLink?.type === "zip") {
-    const btnRow = document.createElement("div"); btnRow.className = "game-btn-row";
-    const playBtn = document.createElement("button"); playBtn.type = "button"; playBtn.className = "play-btn"; playBtn.textContent = "Play";
-    playBtn.addEventListener("click", e => { e.stopPropagation(); launchGame(game); });
-    btnRow.appendChild(playBtn);
-    card.appendChild(btnRow);
-  } else if (playableLink?.type === "external") {
-    const btnRow = document.createElement("div"); btnRow.className = "game-btn-row";
-    const infoBtn = document.createElement("a"); infoBtn.href = playableLink.url; infoBtn.className = "play-btn"; infoBtn.textContent = "Info";
-    infoBtn.target = "_blank"; infoBtn.rel = "noopener noreferrer"; infoBtn.addEventListener("click", e => e.stopPropagation());
-    btnRow.appendChild(infoBtn);
-    card.appendChild(btnRow);
+  // if we're in an iframe, send message to parent (CPlay)
+  if (window.parent !== window) {
+    window.parent.postMessage({
+      type: "launchGame",
+      bundleUrl: game.downloadUrl,
+      title: game.title
+    }, "*");
+    return;
   }
 
-  card.addEventListener("click", () => { launchGame(game); });
-  return card;
+  // standalone fallback: open the bundle URL directly
+  window.open(game.downloadUrl, "_blank", "noopener,noreferrer");
 }
 
-function renderGameGrid(filter = "") {
-  if (!dom.gameGrid) return;
-  const filtered = getFilteredGames(filter);
-  dom.gameGrid.innerHTML = "";
-  filtered.forEach(game => dom.gameGrid.appendChild(createGameCard(game)));
+// ── Rendering ────────────────────────────────────────────────────
 
-  if (dom.visibleGamesCount) dom.visibleGamesCount.textContent = String(filtered.length);
-  if (dom.instantGamesCount) dom.instantGamesCount.textContent = String(filtered.filter(g => g.instantPlay).length);
-  setupFilterUI();
+function render() {
+  const filtered = getFilteredGames();
+
+  // update grid
+  if (dom.gameGrid) {
+    dom.gameGrid.innerHTML = "";
+    filtered.forEach(g => dom.gameGrid.appendChild(createGameCard(g)));
+  }
+
+  // update results info
+  const playable = filtered.filter(g => g.hasBundle).length;
+  if (dom.resultsInfo) {
+    dom.resultsInfo.textContent = `${filtered.length} games${playable ? ` \u00B7 ${playable} playable` : ""}`;
+  }
+
+  // show/hide empty state
+  if (dom.emptyState) {
+    dom.emptyState.hidden = filtered.length > 0;
+  }
+
+  // show/hide clear button
+  const hasActiveFilters = Object.values(state.filters).some(v => v !== "all") || state.searchQuery;
+  if (dom.clearFilters) {
+    dom.clearFilters.hidden = !hasActiveFilters;
+  }
+
+  // rebuild filter chips to reflect active state
+  buildFilterOptions();
 }
 
-// ── Random play ──────────────────────────────────────────────────
-
-function playRandomGame() {
-  const candidates = getFilteredGames(dom.gameSearchInput?.value || "").filter(g => g.instantPlay);
-  if (!candidates.length) return;
-  const picked = candidates[Math.floor(Math.random() * candidates.length)];
-  launchGame(picked);
+function updateStats() {
+  if (!dom.gameStats) return;
+  const total = state.games.length;
+  const playable = state.games.filter(g => g.hasBundle).length;
+  dom.gameStats.textContent = `${total} games \u00B7 ${playable} playable`;
 }
 
 // ── Event listeners ──────────────────────────────────────────────
 
-function setupEventListeners() {
-  dom.gameSearchInput?.addEventListener("input", e => renderGameGrid(e.target.value));
-  dom.gameSort?.addEventListener("change", e => { state.sortBy = e.target.value; renderGameGrid(dom.gameSearchInput?.value || ""); });
-  dom.randomPlayBtn?.addEventListener("click", playRandomGame);
+function setupEvents() {
+  dom.gameSearch?.addEventListener("input", e => {
+    state.searchQuery = e.target.value.trim();
+    render();
+  });
+
+  dom.gameSort?.addEventListener("change", e => {
+    state.sortBy = e.target.value;
+    render();
+  });
+
+  dom.clearFilters?.addEventListener("click", () => {
+    state.filters = { genre: "all", decade: "all", license: "all", status: "all" };
+    state.searchQuery = "";
+    if (dom.gameSearch) dom.gameSearch.value = "";
+    render();
+  });
+
+  dom.randomPlayBtn?.addEventListener("click", () => {
+    const playable = getFilteredGames().filter(g => g.hasBundle);
+    if (!playable.length) {
+      const any = getFilteredGames();
+      if (any.length) {
+        const picked = any[Math.floor(Math.random() * any.length)];
+        if (picked.sourceUrl) window.open(picked.sourceUrl, "_blank", "noopener,noreferrer");
+      }
+      return;
+    }
+    launchGame(playable[Math.floor(Math.random() * playable.length)]);
+  });
+
   dom.openPlayerBtn?.addEventListener("click", () => {
-    // TODO: link to actual C:\PLAY URL
-    alert("C:\\PLAY player — coming soon as a separate app.");
+    if (CPLAY_URL) {
+      window.open(CPLAY_URL, "_blank", "noopener");
+    } else {
+      window.open("https://yal-pj.github.io/CPlay/", "_blank", "noopener");
+    }
+  });
+
+  // listen for messages from parent (CPlay iframe integration)
+  window.addEventListener("message", e => {
+    if (e.data?.type === "loadLibrary" && e.data.url) {
+      loadLibrary(e.data.url).then(games => {
+        state.games = games;
+        updateStats();
+        render();
+      });
+    }
   });
 }
 
 // ── Init ─────────────────────────────────────────────────────────
 
 document.addEventListener("DOMContentLoaded", async () => {
-  setupEventListeners();
-  await loadExternalLibrary();
-  renderGameGrid();
-  const loadedCount = Math.max(0, allGames.length - BASE_GAMES.length);
-  log(`Ready — ${allGames.length} games (${loadedCount} from library.json)`);
+  setupEvents();
+  state.games = await loadLibrary(LIBRARY_URL);
+  updateStats();
+  render();
+  console.log(`[AGAMES] Ready — ${state.games.length} games loaded`);
 });

@@ -9,7 +9,7 @@ import { readJson } from "./utils.mjs";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const botRoot = path.resolve(__dirname, "..");
-const repoRoot = path.resolve(botRoot, "..", "..");
+const repoRoot = path.resolve(botRoot, "..");
 
 const modeArg = process.argv.find(arg => arg.startsWith("--mode="));
 const mode = modeArg ? modeArg.split("=")[1] : "all";
@@ -18,7 +18,7 @@ const catalogPath = process.env.CPLAY_CATALOG_PATH || path.join(botRoot, "work",
 const workDir = process.env.CPLAY_WORK_DIR || path.join(botRoot, "work");
 const distDir = process.env.CPLAY_DIST_DIR || path.join(botRoot, "dist");
 const libraryOutputPath = process.env.CPLAY_LIBRARY_JSON || path.join(repoRoot, "library.json");
-const libraryRepoPath = process.env.CPLAY_LIBRARY_REPO_PATH || "";
+const libraryRepoPath = process.env.CPLAY_LIBRARY_REPO_PATH || repoRoot;
 const bundleBaseUrl = process.env.CPLAY_BUNDLE_BASE_URL || "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles";
 const dosboxTemplatePath = path.join(botRoot, "templates", "dosbox.conf");
 const starterSeedPath = path.join(botRoot, "seeds", "starter-catalog.json");
