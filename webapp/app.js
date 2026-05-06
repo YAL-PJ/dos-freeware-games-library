@@ -1,6 +1,6 @@
-/* ── A:\GAMES — Library app.js ──────────────────────────────────── */
+/* ── A:\GAMES — Library app.js ───────────────────────────────────────────────── */
 
-// ── Configuration ────────────────────────────────────────────────
+// ── Configuration ────────────────────────────────────────────
 // The library can load data from multiple sources:
 // 1. Standalone: loads ../library.json (served from this repo)
 // 2. From CPlay: pass ?library=URL to override the data source
@@ -8,11 +8,11 @@
 
 const params = new URLSearchParams(window.location.search);
 const LIBRARY_URL = params.get("library") || "../library.json";
-const CPLAY_URL = params.get("cplay") || null;
+const CPLAY_URL = params.get("cplay") || "https://playdosgames.xyz/";
 
 const PAGE_SIZE = 50;
 
-// ── DOM References ───────────────────────────────────────────────
+// ── DOM References ───────────────────────────────────────────
 const dom = {
   gameGrid: document.getElementById("gameGrid"),
   gameSearch: document.getElementById("gameSearch"),
@@ -29,7 +29,7 @@ const dom = {
   openPlayerBtn: document.getElementById("openPlayerBtn"),
 };
 
-// ── State ────────────────────────────────────────────────────────
+// ── State ──────────────────────────────────────────────────────
 const state = {
   games: [],
   filters: { genre: "all", decade: "all", license: "all", status: "all" },
@@ -46,7 +46,7 @@ const FALLBACK_ICON = "data:image/svg+xml," + encodeURIComponent(
   '</svg>'
 );
 
-// ── Data loading ─────────────────────────────────────────────────
+// ── Data loading ───────────────────────────────────────────────
 
 function normalizeEntry(entry) {
   const title = String(entry.title || entry.name || "").trim();
@@ -87,7 +87,7 @@ async function loadLibrary(url) {
   }
 }
 
-// ── Filtering & sorting ──────────────────────────────────────────
+// ── Filtering & sorting ─────────────────────────────────────────────
 
 function getDecade(year) {
   if (!year || year < 1980) return "Other";
@@ -189,7 +189,7 @@ function getFilteredGames() {
   return games;
 }
 
-// ── Game cards ────────────────────────────────────────────────────
+// ── Game cards ─────────────────────────────────────────────────────────────
 
 function createGameCard(game) {
   const card = document.createElement("article");
@@ -265,7 +265,7 @@ function createGameCard(game) {
   return card;
 }
 
-// ── Pagination ───────────────────────────────────────────────────
+// ── Pagination ────────────────────────────────────────────────────────────
 
 function renderPagination(totalPages) {
   let pager = document.getElementById("pagination");
@@ -301,7 +301,7 @@ function renderPagination(totalPages) {
   pager.appendChild(nextBtn);
 }
 
-// ── Game launch ──────────────────────────────────────────────────
+// ── Game launch ────────────────────────────────────────────────────────────
 
 function launchGame(game) {
   if (!game.downloadUrl) return;
@@ -328,7 +328,7 @@ function launchGame(game) {
   window.open(game.downloadUrl, "_blank", "noopener,noreferrer");
 }
 
-// ── Rendering ────────────────────────────────────────────────────
+// ── Rendering ──────────────────────────────────────────────────────────────
 
 function renderGrid() {
   const filtered = getFilteredGames();
@@ -376,7 +376,7 @@ function updateStats() {
   dom.gameStats.textContent = `${total} games · ${playable} playable`;
 }
 
-// ── Event listeners ──────────────────────────────────────────────
+// ── Event listeners ────────────────────────────────────────────────────────
 
 function debounce(fn, ms) {
   let timer;
@@ -419,11 +419,12 @@ function setupEvents() {
   });
 
   dom.openPlayerBtn?.addEventListener("click", () => {
-    if (CPLAY_URL) {
-      window.open(CPLAY_URL, "_blank", "noopener");
-    } else {
-      window.open("https://yal-pj.github.io/CPlay/", "_blank", "noopener");
+    // When embedded in CPlay as an iframe, send a message to close the library modal
+    if (window.parent !== window) {
+      window.parent.postMessage({ type: "closeLibrary" }, "*");
+      return;
     }
+    window.open(CPLAY_URL, "_blank", "noopener");
   });
 
   // listen for messages from parent (CPlay iframe integration)
@@ -438,7 +439,7 @@ function setupEvents() {
   });
 }
 
-// ── Init ─────────────────────────────────────────────────────────
+// ── Init ───────────────────────────────────────────────────────────────────
 
 document.addEventListener("DOMContentLoaded", async () => {
   setupEvents();
