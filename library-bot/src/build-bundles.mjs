@@ -36,10 +36,18 @@ export async function buildBundles({ catalog, distDir, workDir, dosboxTemplatePa
       const bundleZip = new AdmZip();
       bundleZip.addFile(".jsdos/dosbox.conf", Buffer.from(dosboxTemplate, "utf8"));
 
+      // Add explicit GAME/ directory entry so js-dos WASM extractor can create it
+      bundleZip.addFile("GAME/", Buffer.alloc(0));
+
       sourceZip.getEntries().forEach(sourceEntry => {
-        if (sourceEntry.isDirectory) return;
         const safeName = sourceEntry.entryName.replace(/^\/+/, "");
-        bundleZip.addFile(`GAME/${safeName}`, sourceEntry.getData());
+        if (!safeName) return;
+        if (sourceEntry.isDirectory) {
+          // Preserve directory entries so subdirs exist before their files are written
+          bundleZip.addFile(`GAME/${safeName}`, Buffer.alloc(0));
+        } else {
+          bundleZip.addFile(`GAME/${safeName}`, sourceEntry.getData());
+        }
       });
 
       bundleZip.writeZip(bundlePath);
