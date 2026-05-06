@@ -24,10 +24,13 @@ const dosboxTemplatePath = path.join(botRoot, "templates", "dosbox.conf");
 const starterSeedPath = path.join(botRoot, "seeds", "starter-catalog.json");
 
 async function run() {
+  const existingLibrary = await readJson(libraryOutputPath, []);
+  console.log(`[bot] loaded ${existingLibrary.length} existing entries from library.json`);
+
   let catalog = [];
   if (mode === "all" || mode === "scrape") {
     try {
-      catalog = await scrapeDosGamesArchive({ outputPath: catalogPath });
+      catalog = await scrapeDosGamesArchive({ outputPath: catalogPath, existingEntries: existingLibrary });
       console.log(`[bot] scraped ${catalog.length} legal entries`);
     } catch (error) {
       console.warn(`[bot] scrape failed, using starter seed: ${error.message || error}`);
@@ -41,7 +44,7 @@ async function run() {
 
   let manifest = catalog;
   if (mode === "all" || mode === "build") {
-    manifest = await buildBundles({ catalog, distDir, workDir, dosboxTemplatePath });
+    manifest = await buildBundles({ catalog, distDir, workDir, dosboxTemplatePath, existingEntries: existingLibrary });
     console.log(`[bot] built ${manifest.filter(item => item.status === "bundled").length} bundles`);
     await publishBundlesToRepo({ manifest, libraryRepoPath });
   } else if (mode !== "scrape") {
