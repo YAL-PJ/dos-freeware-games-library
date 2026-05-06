@@ -115,8 +115,10 @@ function extractScreenshot($) {
   return thumb;
 }
 
-export async function scrapeDosGamesArchive({ outputPath, throttleMs = 300 }) {
+export async function scrapeDosGamesArchive({ outputPath, throttleMs = 300, existingEntries = [] }) {
+  const existingByUrl = new Map(existingEntries.map(e => [e.sourceUrl, e]));
   const entries = [];
+  let skipped = 0;
 
   for (const listPage of LIST_PAGES) {
     const gameLinks = await discoverAllGameLinks(listPage.url, listPage.license, throttleMs);
@@ -128,6 +130,13 @@ export async function scrapeDosGamesArchive({ outputPath, throttleMs = 300 }) {
       if (processed % 50 === 0) {
         console.log(`[scraper] processing ${listPage.license} game ${processed}/${gameLinks.size}`);
       }
+
+      if (existingByUrl.has(detailUrl)) {
+        entries.push(existingByUrl.get(detailUrl));
+        skipped++;
+        continue;
+      }
+
       await wait(throttleMs);
       try {
         const detailHtml = await fetchHtml(detailUrl);
@@ -165,6 +174,8 @@ export async function scrapeDosGamesArchive({ outputPath, throttleMs = 300 }) {
       }
     }
   }
+
+  console.log(`[scraper] skipped ${skipped} already-known entries`);
 
   const deduped = Object.values(Object.fromEntries(entries.map(entry => [entry.id, entry])));
   console.log(`[scraper] total unique entries: ${deduped.length}`);
