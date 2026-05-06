@@ -4,6 +4,7 @@ import { scrapeDosGamesArchive } from "./scrape-dosgames.mjs";
 import { buildBundles } from "./build-bundles.mjs";
 import { generateLibraryJson } from "./generate-library-json.mjs";
 import { publishBundlesToRepo } from "./publish-library-repo.mjs";
+import { patchBundles } from "./patch-bundles.mjs";
 import { readJson } from "./utils.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -19,11 +20,18 @@ const workDir = process.env.CPLAY_WORK_DIR || path.join(botRoot, "work");
 const distDir = process.env.CPLAY_DIST_DIR || path.join(botRoot, "dist");
 const libraryOutputPath = process.env.CPLAY_LIBRARY_JSON || path.join(repoRoot, "library.json");
 const libraryRepoPath = process.env.CPLAY_LIBRARY_REPO_PATH || repoRoot;
+const bundlesDir = process.env.CPLAY_BUNDLES_DIR || path.join(repoRoot, "bundles");
 const bundleBaseUrl = process.env.CPLAY_BUNDLE_BASE_URL || "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles";
 const dosboxTemplatePath = path.join(botRoot, "templates", "dosbox.conf");
 const starterSeedPath = path.join(botRoot, "seeds", "starter-catalog.json");
 
 async function run() {
+  // Patch mode: update dosbox.conf in all existing bundles without re-downloading
+  if (mode === "patch") {
+    await patchBundles({ bundlesDir, dosboxTemplatePath });
+    return;
+  }
+
   const existingLibrary = await readJson(libraryOutputPath, []);
   console.log(`[bot] loaded ${existingLibrary.length} existing entries from library.json`);
 
