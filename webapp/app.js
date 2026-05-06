@@ -10,6 +10,8 @@ const params = new URLSearchParams(window.location.search);
 const LIBRARY_URL = params.get("library") || "../library.json";
 const CPLAY_URL = params.get("cplay") || null;
 
+const PAGE_SIZE = 50;
+
 // ── DOM References ───────────────────────────────────────────────
 const dom = {
   gameGrid: document.getElementById("gameGrid"),
@@ -32,7 +34,8 @@ const state = {
   games: [],
   filters: { genre: "all", decade: "all", license: "all", status: "all" },
   sortBy: "name",
-  searchQuery: ""
+  searchQuery: "",
+  page: 0,
 };
 
 const FALLBACK_ICON = "data:image/svg+xml," + encodeURIComponent(
@@ -73,7 +76,7 @@ function normalizeEntry(entry) {
 
 async function loadLibrary(url) {
   try {
-    const response = await fetch(url, { cache: "no-store" });
+    const response = await fetch(url);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
     if (!Array.isArray(data)) throw new Error("library.json is not an array");
@@ -127,9 +130,20 @@ function createChip(label, filterKey, value) {
   btn.textContent = label;
   btn.addEventListener("click", () => {
     state.filters[filterKey] = value;
-    render();
+    state.page = 0;
+    renderGrid();
+    updateFilterChipStates();
   });
   return btn;
+}
+
+function updateFilterChipStates() {
+  document.querySelectorAll(".chip").forEach(btn => {
+    const filterKey = btn.closest("[id$='Filters']")?.id.replace("Filters", "").replace(/([A-Z])/g, m => m.toLowerCase());
+    if (!filterKey || !(filterKey in state.filters)) return;
+    const value = btn.textContent === "All" ? "all" : btn.textContent;
+    btn.classList.toggle("active", state.filters[filterKey] === value);
+  });
 }
 
 function getFilteredGames() {
@@ -212,7 +226,7 @@ function createGameCard(game) {
 
   const meta = document.createElement("p");
   meta.className = "card-meta";
-  meta.textContent = [game.genre, game.year || "", game.license].filter(Boolean).join(" \u00B7 ");
+  meta.textContent = [game.genre, game.year || "", game.license].filter(Boolean).join(" · ");
   info.appendChild(meta);
 
   card.appendChild(info);
@@ -251,6 +265,42 @@ function createGameCard(game) {
   return card;
 }
 
+// ── Pagination ───────────────────────────────────────────────────
+
+function renderPagination(totalPages) {
+  let pager = document.getElementById("pagination");
+  if (!pager) {
+    pager = document.createElement("div");
+    pager.id = "pagination";
+    pager.className = "pagination";
+    dom.gameGrid.insertAdjacentElement("afterend", pager);
+  }
+  pager.innerHTML = "";
+
+  if (totalPages <= 1) return;
+
+  const prevBtn = document.createElement("button");
+  prevBtn.type = "button";
+  prevBtn.className = "ghost-btn";
+  prevBtn.textContent = "← Prev";
+  prevBtn.disabled = state.page === 0;
+  prevBtn.addEventListener("click", () => { state.page--; renderGrid(); window.scrollTo(0, 0); });
+  pager.appendChild(prevBtn);
+
+  const pageInfo = document.createElement("span");
+  pageInfo.className = "page-info";
+  pageInfo.textContent = `Page ${state.page + 1} of ${totalPages}`;
+  pager.appendChild(pageInfo);
+
+  const nextBtn = document.createElement("button");
+  nextBtn.type = "button";
+  nextBtn.className = "ghost-btn";
+  nextBtn.textContent = "Next →";
+  nextBtn.disabled = state.page >= totalPages - 1;
+  nextBtn.addEventListener("click", () => { state.page++; renderGrid(); window.scrollTo(0, 0); });
+  pager.appendChild(nextBtn);
+}
+
 // ── Game launch ──────────────────────────────────────────────────
 
 function launchGame(game) {
@@ -280,61 +330,79 @@ function launchGame(game) {
 
 // ── Rendering ────────────────────────────────────────────────────
 
-function render() {
+function renderGrid() {
   const filtered = getFilteredGames();
+  const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
+  const page = Math.min(state.page, Math.max(0, totalPages - 1));
+  state.page = page;
 
-  // update grid
+  const pageGames = filtered.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
+
   if (dom.gameGrid) {
     dom.gameGrid.innerHTML = "";
-    filtered.forEach(g => dom.gameGrid.appendChild(createGameCard(g)));
+    const fragment = document.createDocumentFragment();
+    pageGames.forEach(g => fragment.appendChild(createGameCard(g)));
+    dom.gameGrid.appendChild(fragment);
   }
 
-  // update results info
+  renderPagination(totalPages);
+
   const playable = filtered.filter(g => g.hasBundle).length;
   if (dom.resultsInfo) {
-    dom.resultsInfo.textContent = `${filtered.length} games${playable ? ` \u00B7 ${playable} playable` : ""}`;
+    dom.resultsInfo.textContent = `${filtered.length} games${playable ? ` · ${playable} playable` : ""}`;
   }
 
-  // show/hide empty state
   if (dom.emptyState) {
     dom.emptyState.hidden = filtered.length > 0;
   }
 
-  // show/hide clear button
   const hasActiveFilters = Object.values(state.filters).some(v => v !== "all") || state.searchQuery;
   if (dom.clearFilters) {
     dom.clearFilters.hidden = !hasActiveFilters;
   }
+}
 
-  // rebuild filter chips to reflect active state
+// kept for external callers (postMessage loadLibrary)
+function render() {
+  state.page = 0;
   buildFilterOptions();
+  renderGrid();
 }
 
 function updateStats() {
   if (!dom.gameStats) return;
   const total = state.games.length;
   const playable = state.games.filter(g => g.hasBundle).length;
-  dom.gameStats.textContent = `${total} games \u00B7 ${playable} playable`;
+  dom.gameStats.textContent = `${total} games · ${playable} playable`;
 }
 
 // ── Event listeners ──────────────────────────────────────────────
 
+function debounce(fn, ms) {
+  let timer;
+  return (...args) => { clearTimeout(timer); timer = setTimeout(() => fn(...args), ms); };
+}
+
 function setupEvents() {
-  dom.gameSearch?.addEventListener("input", e => {
+  dom.gameSearch?.addEventListener("input", debounce(e => {
     state.searchQuery = e.target.value.trim();
-    render();
-  });
+    state.page = 0;
+    renderGrid();
+  }, 250));
 
   dom.gameSort?.addEventListener("change", e => {
     state.sortBy = e.target.value;
-    render();
+    state.page = 0;
+    renderGrid();
   });
 
   dom.clearFilters?.addEventListener("click", () => {
     state.filters = { genre: "all", decade: "all", license: "all", status: "all" };
     state.searchQuery = "";
+    state.page = 0;
     if (dom.gameSearch) dom.gameSearch.value = "";
-    render();
+    buildFilterOptions();
+    renderGrid();
   });
 
   dom.randomPlayBtn?.addEventListener("click", () => {
