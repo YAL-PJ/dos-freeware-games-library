@@ -33,17 +33,21 @@ export function isLegalLicense(value = "") {
   return LEGAL_LICENSES.has(normalizeLicense(value));
 }
 
-// Executables that are utilities, not the game itself.
+// Executables that are utilities/runtimes, not the game itself.
 const NON_GAME_EXES = new Set([
   "setup.exe", "install.exe", "installer.exe",
   "config.exe", "conf.exe", "configure.exe",
   "uninstall.exe", "uninst.exe",
   "patch.exe", "update.exe",
+  // DOS extenders and runtime loaders — must be invoked with a game exe as argument
+  "dos4gw.exe", "dos4gx.exe", "dos32a.exe",
+  "cwsdpmi.exe", "dpmi16bi.ovl",
+  // Misc utilities commonly bundled with games
+  "uvconfig.exe", "setsound.exe", "sound.exe",
 ]);
 
 function pickExe(files) {
   const lc = s => s.toLowerCase();
-  // Prefer a game exe over known utility executables
   return files.find(f => lc(f).endsWith(".exe") && !NON_GAME_EXES.has(lc(f)))
     || files.find(f => lc(f).endsWith(".exe"));
 }
@@ -56,12 +60,29 @@ function pickCom(files) {
 /**
  * Given file paths relative to the GAME/ directory, finds the best launcher.
  * Returns an array of dosbox autoexec lines (e.g. ["cd SUB", "GAME.EXE"]).
+ *
+ * Priority:
+ *  1. *web.bat at root  — DOS Games Archive browser-specific launcher
+ *  2. start.bat at root — common convention
+ *  3. Any other .bat at root
+ *  4. Game .exe at root (skipping known utility/runtime exes)
+ *  5. .com at root
+ *  6. Repeat 1-5 for each subdirectory
  */
 export function detectLauncher(filePaths) {
   const lc = s => s.toLowerCase();
   const rootFiles = filePaths.filter(f => !f.includes("/"));
 
+  // Prefer browser-optimised batch file (e.g. WC1WEB.BAT, WAR2WEB.BAT)
+  const webBat = rootFiles.find(f => lc(f).endsWith("web.bat"));
+  if (webBat) return [`call ${webBat.toUpperCase()}`];
+
   if (rootFiles.some(f => lc(f) === "start.bat")) return ["call START.BAT"];
+
+  // Any other .bat at root
+  const rootBat = rootFiles.find(f => lc(f).endsWith(".bat"));
+  if (rootBat) return [`call ${rootBat.toUpperCase()}`];
+
   const rootExe = pickExe(rootFiles);
   if (rootExe) return [rootExe.toUpperCase()];
   const rootCom = pickCom(rootFiles);
@@ -77,8 +98,15 @@ export function detectLauncher(filePaths) {
       .map(f => f.slice(sub.length + 1))
       .filter(f => !f.includes("/"));
 
+    const subWebBat = subFiles.find(f => lc(f).endsWith("web.bat"));
+    if (subWebBat) return [`cd ${sub.toUpperCase()}`, `call ${subWebBat.toUpperCase()}`];
+
     if (subFiles.some(f => lc(f) === "start.bat"))
       return [`cd ${sub.toUpperCase()}`, "call START.BAT"];
+
+    const subBat = subFiles.find(f => lc(f).endsWith(".bat"));
+    if (subBat) return [`cd ${sub.toUpperCase()}`, `call ${subBat.toUpperCase()}`];
+
     const subExe = pickExe(subFiles);
     if (subExe) return [`cd ${sub.toUpperCase()}`, subExe.toUpperCase()];
     const subCom = pickCom(subFiles);
@@ -89,7 +117,6 @@ export function detectLauncher(filePaths) {
 }
 
 export async function fetchHtml(url) {
-  // try native fetch first, fall back to curl if it fails
   try {
     const response = await fetch(url, {
       headers: {
@@ -101,7 +128,6 @@ export async function fetchHtml(url) {
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return await response.text();
   } catch {
-    // fallback to curl
     const { stdout } = await execFileAsync("curl", [
       "-sL", "--max-time", "30",
       "-H", "User-Agent: cplay-library-bot/1.0 (+https://github.com/YAL-PJ/CPlay)",
@@ -114,7 +140,6 @@ export async function fetchHtml(url) {
 }
 
 export async function downloadBuffer(url) {
-  // try native fetch first, fall back to curl
   try {
     const response = await fetch(url, {
       redirect: "follow",
