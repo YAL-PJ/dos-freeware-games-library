@@ -84,17 +84,31 @@ export async function buildBundles({ catalog, distDir, workDir, dosboxTemplatePa
       const bundleZip = new AdmZip();
       bundleZip.addFile(".jsdos/dosbox.conf", Buffer.from(dosboxConf, "utf8"));
 
-      // Add explicit GAME/ directory entry so js-dos WASM extractor can create it
-      bundleZip.addFile("GAME/", Buffer.alloc(0));
-
+      // Collect all directory entries needed for the js-dos WASM extractor.
+      // Two sources: explicit dir entries from the source zip (preserves empty dirs),
+      // and all ancestor directories derived from file paths (handles zips that omit
+      // directory entries, e.g. WAR2/WAR2.EXE with no WAR2/ entry).
+      const neededDirs = new Set(["GAME/"]);
       sourceZip.getEntries().forEach(sourceEntry => {
         const safeName = sourceEntry.entryName.replace(/^\/+/, "");
         if (!safeName) return;
         if (sourceEntry.isDirectory) {
-          bundleZip.addFile(`GAME/${safeName}`, Buffer.alloc(0));
+          neededDirs.add("GAME/" + safeName);
         } else {
-          bundleZip.addFile(`GAME/${safeName}`, sourceEntry.getData());
+          const parts = safeName.split("/");
+          for (let depth = 1; depth < parts.length; depth++) {
+            neededDirs.add("GAME/" + parts.slice(0, depth).join("/") + "/");
+          }
         }
+      });
+      for (const dir of neededDirs) {
+        bundleZip.addFile(dir, Buffer.alloc(0));
+      }
+
+      sourceZip.getEntries().forEach(sourceEntry => {
+        const safeName = sourceEntry.entryName.replace(/^\/+/, "");
+        if (!safeName || sourceEntry.isDirectory) return;
+        bundleZip.addFile(`GAME/${safeName}`, sourceEntry.getData());
       });
 
       bundleZip.writeZip(bundlePath);
