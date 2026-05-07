@@ -9,6 +9,40 @@ function buildConf(templateBase, launcherLines) {
 }
 
 /**
+ * If the detected launcher is a WEB.BAT that uses the old-style bare
+ * 'scaler X' command (instead of 'config -set render scaler=X'), that
+ * command corrupts the js-dos canvas. In that case we:
+ *   1. Emit 'config -set render scaler=normal2x' directly
+ *   2. Call whatever BAT the WEB.BAT chains to (skipping the WEB.BAT itself)
+ */
+function resolveWebBat(zip, rawLines) {
+  if (rawLines.length !== 1) return rawLines;
+  const line = rawLines[0];
+  if (!/^call .+web\.bat$/i.test(line)) return rawLines;
+
+  const batFile = line.slice(5); // strip leading "call "
+  const batEntry =
+    zip.getEntry(`GAME/${batFile}`) ||
+    zip.getEntries().find(e => e.entryName.toLowerCase() === `game/${batFile.toLowerCase()}`);
+  if (!batEntry) return rawLines;
+
+  const content = batEntry.getData().toString("utf8");
+
+  // Only intervene when the WEB.BAT uses the bare 'scaler' command
+  // (not the correct 'config -set render scaler=...' form)
+  if (!/^\s*scaler\s+\S/mi.test(content)) return rawLines;
+
+  // Extract the BAT that WEB.BAT chains to
+  const m = content.match(/^\s*call\s+(\S+\.bat)/mi);
+  if (!m) return rawLines;
+
+  return [
+    "config -set render scaler=normal2x",
+    `call ${m[1].toUpperCase()}`,
+  ];
+}
+
+/**
  * Patches every existing .jsdos bundle in-place:
  *  1. Detects the game launcher from GAME/ file listing.
  *  2. Writes a new dosbox.conf with the exact launcher command (no FOR loops).
@@ -45,7 +79,8 @@ export async function patchBundles({ bundlesDir, dosboxTemplatePath }) {
         .map(e => e.entryName.slice("GAME/".length))
         .filter(Boolean);
 
-      const launcherLines = detectLauncher(gamePaths);
+      const rawLines = detectLauncher(gamePaths);
+      const launcherLines = resolveWebBat(zip, rawLines);
       const newConf = buildConf(templateBase, launcherLines);
 
       // 2. Update dosbox.conf
