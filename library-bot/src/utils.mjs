@@ -33,6 +33,61 @@ export function isLegalLicense(value = "") {
   return LEGAL_LICENSES.has(normalizeLicense(value));
 }
 
+// Executables that are utilities, not the game itself.
+const NON_GAME_EXES = new Set([
+  "setup.exe", "install.exe", "installer.exe",
+  "config.exe", "conf.exe", "configure.exe",
+  "uninstall.exe", "uninst.exe",
+  "patch.exe", "update.exe",
+]);
+
+function pickExe(files) {
+  const lc = s => s.toLowerCase();
+  // Prefer a game exe over known utility executables
+  return files.find(f => lc(f).endsWith(".exe") && !NON_GAME_EXES.has(lc(f)))
+    || files.find(f => lc(f).endsWith(".exe"));
+}
+
+function pickCom(files) {
+  const lc = s => s.toLowerCase();
+  return files.find(f => lc(f).endsWith(".com"));
+}
+
+/**
+ * Given file paths relative to the GAME/ directory, finds the best launcher.
+ * Returns an array of dosbox autoexec lines (e.g. ["cd SUB", "GAME.EXE"]).
+ */
+export function detectLauncher(filePaths) {
+  const lc = s => s.toLowerCase();
+  const rootFiles = filePaths.filter(f => !f.includes("/"));
+
+  if (rootFiles.some(f => lc(f) === "start.bat")) return ["call START.BAT"];
+  const rootExe = pickExe(rootFiles);
+  if (rootExe) return [rootExe.toUpperCase()];
+  const rootCom = pickCom(rootFiles);
+  if (rootCom) return [rootCom.toUpperCase()];
+
+  const subdirs = [...new Set(
+    filePaths.filter(f => f.includes("/")).map(f => f.split("/")[0])
+  )];
+
+  for (const sub of subdirs) {
+    const subFiles = filePaths
+      .filter(f => f.startsWith(sub + "/"))
+      .map(f => f.slice(sub.length + 1))
+      .filter(f => !f.includes("/"));
+
+    if (subFiles.some(f => lc(f) === "start.bat"))
+      return [`cd ${sub.toUpperCase()}`, "call START.BAT"];
+    const subExe = pickExe(subFiles);
+    if (subExe) return [`cd ${sub.toUpperCase()}`, subExe.toUpperCase()];
+    const subCom = pickCom(subFiles);
+    if (subCom) return [`cd ${sub.toUpperCase()}`, subCom.toUpperCase()];
+  }
+
+  return ["echo Could not auto-detect launcher. Type DIR to see files."];
+}
+
 export async function fetchHtml(url) {
   // try native fetch first, fall back to curl if it fails
   try {

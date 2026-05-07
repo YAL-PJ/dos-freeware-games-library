@@ -1,37 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import AdmZip from "adm-zip";
-
-function detectLauncher(filePaths) {
-  const lc = s => s.toLowerCase();
-  const rootFiles = filePaths.filter(f => !f.includes("/"));
-
-  if (rootFiles.some(f => lc(f) === "start.bat")) return ["call START.BAT"];
-  const rootExe = rootFiles.find(f => lc(f).endsWith(".exe"));
-  if (rootExe) return [rootExe.toUpperCase()];
-  const rootCom = rootFiles.find(f => lc(f).endsWith(".com"));
-  if (rootCom) return [rootCom.toUpperCase()];
-
-  const subdirs = [...new Set(
-    filePaths.filter(f => f.includes("/")).map(f => f.split("/")[0])
-  )];
-
-  for (const sub of subdirs) {
-    const subFiles = filePaths
-      .filter(f => f.startsWith(sub + "/"))
-      .map(f => f.slice(sub.length + 1))
-      .filter(f => !f.includes("/"));
-
-    if (subFiles.some(f => lc(f) === "start.bat"))
-      return [`cd ${sub.toUpperCase()}`, "call START.BAT"];
-    const subExe = subFiles.find(f => lc(f).endsWith(".exe"));
-    if (subExe) return [`cd ${sub.toUpperCase()}`, subExe.toUpperCase()];
-    const subCom = subFiles.find(f => lc(f).endsWith(".com"));
-    if (subCom) return [`cd ${sub.toUpperCase()}`, subCom.toUpperCase()];
-  }
-
-  return ["echo Could not auto-detect launcher. Type DIR to see files."];
-}
+import { detectLauncher } from "./utils.mjs";
 
 function buildConf(templateBase, launcherLines) {
   const autoexec = ["@echo off", "mount c .", "c:", "cd GAME", ...launcherLines, "exit"].join("\n");
