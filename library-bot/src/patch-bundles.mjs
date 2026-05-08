@@ -8,38 +8,94 @@ function buildConf(templateBase, launcherLines) {
   return `${templateBase}\n[autoexec]\n${autoexec}\n`;
 }
 
+function findEntry(zip, entryName) {
+  return (
+    zip.getEntry(entryName) ||
+    zip.getEntries().find(e => e.entryName.toLowerCase() === entryName.toLowerCase())
+  );
+}
+
 /**
- * If the detected launcher is a WEB.BAT that uses the old-style bare
- * 'scaler X' command (instead of 'config -set render scaler=X'), that
- * command corrupts the js-dos canvas. In that case we:
- *   1. Emit 'config -set render scaler=normal2x' directly
- *   2. Call whatever BAT the WEB.BAT chains to (skipping the WEB.BAT itself)
+ * When a *WEB.BAT uses the old-style bare 'scaler X' command (not
+ * 'config -set render scaler=X'), the bare command may cause js-dos to
+ * behave incorrectly (e.g. blank screen, uncapped auto-cycles hang).
+ *
+ * In that case, parse the SH.BAT the WEB.BAT chains to and inline its
+ * commands directly, translating bare DOSBox commands to their proper
+ * 'config -set' equivalents. This matches how newer bundles (Warcraft II)
+ * already work.
  */
 function resolveWebBat(zip, rawLines) {
   if (rawLines.length !== 1) return rawLines;
   const line = rawLines[0];
   if (!/^call .+web\.bat$/i.test(line)) return rawLines;
 
-  const batFile = line.slice(5); // strip leading "call "
-  const batEntry =
-    zip.getEntry(`GAME/${batFile}`) ||
-    zip.getEntries().find(e => e.entryName.toLowerCase() === `game/${batFile.toLowerCase()}`);
-  if (!batEntry) return rawLines;
+  const webBatFile = line.slice(5); // strip "call "
+  const webBatEntry = findEntry(zip, `GAME/${webBatFile}`);
+  if (!webBatEntry) return rawLines;
 
-  const content = batEntry.getData().toString("utf8");
+  const webContent = webBatEntry.getData().toString("utf8");
 
-  // Only intervene when the WEB.BAT uses the bare 'scaler' command
-  // (not the correct 'config -set render scaler=...' form)
-  if (!/^\s*scaler\s+\S/mi.test(content)) return rawLines;
+  // Only intervene for old-style WEB.BATs that use the bare 'scaler' command
+  if (!/^\s*scaler\s+\S/mi.test(webContent)) return rawLines;
 
-  // Extract the BAT that WEB.BAT chains to
-  const m = content.match(/^\s*call\s+(\S+\.bat)/mi);
-  if (!m) return rawLines;
+  // Find the SH/standard BAT the WEB.BAT chains to
+  const callMatch = webContent.match(/^\s*call\s+(\S+\.bat)/mi);
+  if (!callMatch) return rawLines;
 
-  return [
-    "config -set render scaler=normal2x",
-    `call ${m[1].toUpperCase()}`,
-  ];
+  const shBatFile = callMatch[1].toUpperCase();
+  const shBatEntry = findEntry(zip, `GAME/${shBatFile}`);
+  if (!shBatEntry) {
+    // Can't parse further — fall back to just fixing the scaler
+    return ["config -set render scaler=normal2x", `call ${shBatFile}`];
+  }
+
+  const shContent = shBatEntry.getData().toString("utf8");
+  const result = ["config -set render scaler=normal2x"];
+
+  for (const rawLine of shContent.split(/\r?\n/)) {
+    const t = rawLine.trim();
+    const lc = t.toLowerCase();
+
+    // Skip comments, echo control, cls, pause, echo messages, cd..
+    if (
+      !t ||
+      lc.startsWith("rem") ||
+      lc.startsWith("@") ||
+      lc === "cls" ||
+      lc === "pause" ||
+      lc.startsWith("echo") ||
+      lc === "cd.." ||
+      lc === "cd .." ||
+      lc.startsWith("@echo")
+    ) continue;
+
+    // Translate bare 'aspect X' → config -set render aspect=X
+    const aspectMatch = t.match(/^aspect\s+(true|false)$/i);
+    if (aspectMatch) {
+      result.push(`config -set render aspect=${aspectMatch[1].toLowerCase()}`);
+      continue;
+    }
+
+    // Translate bare 'cycles ...' → config -set cpu "cycles=..."
+    // Also unescape %% → % (batch file escaping)
+    if (/^cycles\s+/i.test(t)) {
+      const rest = t.replace(/^cycles\s+/i, "").replace(/%%/g, "%");
+      result.push(`config -set cpu "cycles=${rest}"`);
+      continue;
+    }
+
+    // Keep: cd, .exe/.com, loadfix
+    if (
+      /^cd\s+\S/i.test(t) ||
+      /\.(exe|com)(\s|$)/i.test(t) ||
+      /^loadfix\s/i.test(t)
+    ) {
+      result.push(t.toUpperCase());
+    }
+  }
+
+  return result;
 }
 
 /**
