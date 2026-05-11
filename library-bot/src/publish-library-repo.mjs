@@ -10,6 +10,8 @@ export async function publishBundlesToRepo({ manifest, libraryRepoPath }) {
   for (const entry of manifest) {
     if (!entry.bundlePath || entry.metadataOnly) continue;
     const targetPath = path.join(bundleDir, entry.bundleName);
+    // Skip if the bundle is already in place (preserved from a previous run)
+    if (path.resolve(entry.bundlePath) === path.resolve(targetPath)) continue;
     await fs.copyFile(entry.bundlePath, targetPath);
   }
 }

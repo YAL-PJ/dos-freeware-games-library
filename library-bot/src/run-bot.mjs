@@ -52,7 +52,7 @@ async function run() {
 
   let manifest = catalog;
   if (mode === "all" || mode === "build") {
-    manifest = await buildBundles({ catalog, distDir, workDir, dosboxTemplatePath, existingEntries: existingLibrary });
+    manifest = await buildBundles({ catalog, distDir, workDir, dosboxTemplatePath, bundlesDir, existingEntries: existingLibrary });
     console.log(`[bot] built ${manifest.filter(item => item.status === "bundled").length} bundles`);
     await publishBundlesToRepo({ manifest, libraryRepoPath });
   } else if (mode !== "scrape") {

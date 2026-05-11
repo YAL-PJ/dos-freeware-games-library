@@ -8,7 +8,7 @@ function buildConf(templateBase, launcherLines) {
   return `${templateBase}\n[autoexec]\n${autoexec}\n`;
 }
 
-export async function buildBundles({ catalog, distDir, workDir, dosboxTemplatePath, existingEntries = [] }) {
+export async function buildBundles({ catalog, distDir, workDir, dosboxTemplatePath, bundlesDir, existingEntries = [] }) {
   await ensureDir(distDir);
   await ensureDir(workDir);
   const dosboxTemplateBase = await fs.readFile(dosboxTemplatePath, "utf8");
@@ -24,14 +24,22 @@ export async function buildBundles({ catalog, distDir, workDir, dosboxTemplatePa
 
     const bundleName = `${entry.id}.jsdos`;
     const bundlePath = path.join(distDir, bundleName);
+    const repoBundlePath = bundlesDir ? path.join(bundlesDir, bundleName) : null;
 
     if (existingByUrl.has(entry.sourceUrl)) {
-      try {
-        await fs.access(bundlePath);
-        manifest.push({ ...entry, bundleName, bundlePath, metadataOnly: false, status: "bundled" });
-        skipped++;
-        continue;
-      } catch { /* bundle missing on disk, fall through to rebuild */ }
+      // Check distDir first (local dev cache), then the committed bundles/ dir (CI).
+      // On a fresh CI runner distDir is always empty, so this fallback is critical.
+      let found = false;
+      for (const checkPath of [bundlePath, repoBundlePath].filter(Boolean)) {
+        try {
+          await fs.access(checkPath);
+          manifest.push({ ...entry, bundleName, bundlePath: checkPath, metadataOnly: false, status: "bundled" });
+          skipped++;
+          found = true;
+          break;
+        } catch { /* try next */ }
+      }
+      if (found) continue;
     }
 
     try {
@@ -90,6 +98,27 @@ export async function buildBundles({ catalog, distDir, workDir, dosboxTemplatePa
   }
 
   console.log(`[builder] skipped ${skipped} already-bundled entries`);
+
+  // Preserve previously-bundled games not in this catalog run but whose .jsdos
+  // file still exists in the repo. Prevents games from disappearing from the
+  // library just because the scraper missed them on a given day.
+  if (bundlesDir) {
+    const catalogUrls = new Set(catalog.map(e => e.sourceUrl));
+    let preserved = 0;
+    for (const existing of existingEntries) {
+      if (catalogUrls.has(existing.sourceUrl)) continue;
+      if (existing.status !== "bundled") continue;
+      const bundleName = `${existing.id}.jsdos`;
+      const repoBundlePath = path.join(bundlesDir, bundleName);
+      try {
+        await fs.access(repoBundlePath);
+        manifest.push({ ...existing, bundleName, bundlePath: repoBundlePath, metadataOnly: false, status: "bundled" });
+        preserved++;
+      } catch { /* bundle file gone, let it drop */ }
+    }
+    if (preserved > 0) console.log(`[builder] preserved ${preserved} existing bundled games not in this catalog`);
+  }
+
   await writeJson(path.join(workDir, "bundle-manifest.json"), manifest);
   return manifest;
 }
