@@ -46,10 +46,23 @@ const NON_GAME_EXES = new Set([
   "uvconfig.exe", "setsound.exe", "sound.exe",
 ]);
 
+// Batch files that launch documentation/utilities, not the game itself.
+const NON_GAME_BATS = new Set([
+  "help.bat", "readme.bat", "manual.bat", "docs.bat", "doc.bat",
+  "install.bat", "setup.bat", "config.bat", "configure.bat",
+  "uninstall.bat", "sound.bat", "setsound.bat",
+]);
+
 function pickExe(files) {
   const lc = s => s.toLowerCase();
   return files.find(f => lc(f).endsWith(".exe") && !NON_GAME_EXES.has(lc(f)))
     || files.find(f => lc(f).endsWith(".exe"));
+}
+
+function pickBat(files) {
+  const lc = s => s.toLowerCase();
+  return files.find(f => lc(f).endsWith(".bat") && !NON_GAME_BATS.has(lc(f)))
+    || files.find(f => lc(f).endsWith(".bat"));
 }
 
 function pickCom(files) {
@@ -64,7 +77,7 @@ function pickCom(files) {
  * Priority:
  *  1. *web.bat at root  — DOS Games Archive browser-specific launcher
  *  2. start.bat at root — common convention
- *  3. Any other .bat at root
+ *  3. Any other .bat at root (skipping known help/setup/doc bats)
  *  4. Game .exe at root (skipping known utility/runtime exes)
  *  5. .com at root
  *  6. Repeat 1-5 for each subdirectory
@@ -79,8 +92,8 @@ export function detectLauncher(filePaths) {
 
   if (rootFiles.some(f => lc(f) === "start.bat")) return ["call START.BAT"];
 
-  // Any other .bat at root
-  const rootBat = rootFiles.find(f => lc(f).endsWith(".bat"));
+  // Any other .bat at root (prefer game launchers over help/setup/doc bats)
+  const rootBat = pickBat(rootFiles);
   if (rootBat) return [`call ${rootBat.toUpperCase()}`];
 
   const rootExe = pickExe(rootFiles);
@@ -104,7 +117,7 @@ export function detectLauncher(filePaths) {
     if (subFiles.some(f => lc(f) === "start.bat"))
       return [`cd ${sub.toUpperCase()}`, "call START.BAT"];
 
-    const subBat = subFiles.find(f => lc(f).endsWith(".bat"));
+    const subBat = pickBat(subFiles);
     if (subBat) return [`cd ${sub.toUpperCase()}`, `call ${subBat.toUpperCase()}`];
 
     const subExe = pickExe(subFiles);
