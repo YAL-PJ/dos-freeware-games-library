@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import AdmZip from "adm-zip";
-import { downloadBuffer, ensureDir, writeJson, detectLauncher } from "./utils.mjs";
+import { downloadBuffer, ensureDir, writeJson, detectLauncher, isPlayableLauncher } from "./utils.mjs";
 
 function buildConf(templateBase, launcherLines) {
   const autoexec = ["@echo off", "mount c .", "c:", "cd GAME", ...launcherLines, "exit"].join("\n");
@@ -52,6 +52,19 @@ export async function buildBundles({ catalog, distDir, workDir, dosboxTemplatePa
         if (!e.isDirectory) gamePaths.push(e.entryName.replace(/^\/+/, ""));
       });
       const launcherLines = detectLauncher(gamePaths);
+
+      // Skip games that only have an installer or no detectable launcher —
+      // they would crash on launch rather than running the game.
+      if (!isPlayableLauncher(launcherLines)) {
+        manifest.push({
+          ...entry,
+          metadataOnly: true,
+          status: "installer-only",
+          failureReason: "No playable launcher detected (installer-only or unrecognised archive)"
+        });
+        continue;
+      }
+
       const dosboxConf = buildConf(dosboxTemplateBase, launcherLines);
 
       const bundleZip = new AdmZip();
