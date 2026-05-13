@@ -129,6 +129,31 @@ export function detectLauncher(filePaths) {
   return ["echo Could not auto-detect launcher. Type DIR to see files."];
 }
 
+/**
+ * Returns true only when detectLauncher() found a genuine game executable
+ * (not an installer, config utility, or undetected fallback).
+ *
+ * Use this in build-bundles.mjs to avoid shipping bundles that would
+ * just launch an installer or print an error message.
+ */
+export function isPlayableLauncher(launcherLines) {
+  if (!launcherLines || !launcherLines.length) return false;
+  const lastLine = launcherLines[launcherLines.length - 1].trim().toLowerCase();
+
+  // detectLauncher() fell through with no match at all
+  if (lastLine.startsWith("echo ")) return false;
+
+  // Fallback picked an installer/utility exe (e.g. INSTALL.EXE, SETUP.EXE)
+  const exeMatch = lastLine.match(/^(\S+\.exe)$/);
+  if (exeMatch && NON_GAME_EXES.has(exeMatch[1])) return false;
+
+  // Fallback picked an installer/utility bat (e.g. INSTALL.BAT, SETUP.BAT)
+  const batMatch = lastLine.match(/^(?:call\s+)?(\S+\.bat)$/);
+  if (batMatch && NON_GAME_BATS.has(batMatch[1])) return false;
+
+  return true;
+}
+
 export async function fetchHtml(url) {
   try {
     const response = await fetch(url, {
