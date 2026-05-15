@@ -21,6 +21,10 @@ function findEntry(zip, entryName) {
  * / 'aspect' / 'scaler' commands may behave incorrectly (e.g. uncapped
  * auto-cycles stalls emulation). The config -set form is safe.
  *
+ * Also fixes path issues that arise because all game files live under
+ * GAME/ in the bundle (mounted as C:\GAME\) but many DOS Games Archive
+ * launcher scripts were written expecting the game root to be C:\.
+ *
  * Returns the patched content, or the original string if nothing changed.
  */
 function patchBatContent(content) {
@@ -41,7 +45,19 @@ function patchBatContent(content) {
       /^(\s*)cycles\s+([^\r\n]+)$/mig,
       (_, pre, rest) =>
         `${pre}config -set cpu "cycles=${rest.replace(/%%/g, "%").trim()}"`
-    );
+    )
+    // Wrong quoting: 'config -set "cpu cycles=..."' → 'config -set cpu "cycles=..."'
+    // The section name must be a separate token; quoting it together with the
+    // key-value swallows the section name and the command silently does nothing.
+    .replace(
+      /^(\s*)config\s+-set\s+"cpu\s+cycles=([^"]*)"([^\r\n]*)$/mig,
+      (_, pre, val, rest) => `${pre}config -set cpu "cycles=${val}"${rest}`
+    )
+    // Absolute C:\SBPRO\ paths → C:\GAME\SBPRO\ (FM sound driver bundled under GAME/)
+    .replace(/C:\\SBPRO\\/gi, "C:\\GAME\\SBPRO\\")
+    // Absolute C:\S3VBE20\ / C:\S3SPDUP\ paths → C:\GAME\... (VESA drivers under GAME/)
+    .replace(/C:\\S3VBE20\\/gi, "C:\\GAME\\S3VBE20\\")
+    .replace(/C:\\S3SPDUP\\/gi, "C:\\GAME\\S3SPDUP\\");
 }
 
 /**
