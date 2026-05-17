@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import AdmZip from "adm-zip";
-import { detectLauncher } from "./utils.mjs";
+import { detectLauncher, isPlayableLauncher } from "./utils.mjs";
 
 function buildConf(templateBase, launcherLines) {
   const autoexec = ["@echo off", "mount c .", "c:", "cd GAME", ...launcherLines, "exit"].join("\n");
@@ -13,6 +13,107 @@ function findEntry(zip, entryName) {
     zip.getEntry(entryName) ||
     zip.getEntries().find(e => e.entryName.toLowerCase() === entryName.toLowerCase())
   );
+}
+
+// PK\x05\x06 = End of Central Directory record. Its presence near the end of an
+// MZ executable indicates a self-extracting ZIP archive (WinZip SE, PKSFX, etc).
+// DOSBox can't run these — it would either execute the Windows stub or crash —
+// so the bundle has to ship the *contents* of the SFX, not the SFX itself.
+function looksLikeSfxZip(buf) {
+  if (buf.length < 64) return false;
+  if (buf[0] !== 0x4d || buf[1] !== 0x5a) return false; // MZ
+  // Scan the last 64KB (max ZIP comment length + EOCD record size).
+  const scanFrom = Math.max(0, buf.length - 65557);
+  for (let i = buf.length - 22; i >= scanFrom; i--) {
+    if (buf[i] === 0x50 && buf[i + 1] === 0x4b && buf[i + 2] === 0x05 && buf[i + 3] === 0x06) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// Read entries from an SFX EXE buffer. Returns null if AdmZip can't parse it.
+function readSfxEntries(buf) {
+  try {
+    const inner = new AdmZip(buf);
+    const entries = inner.getEntries();
+    if (!entries.length) return null;
+    return entries;
+  } catch {
+    return null;
+  }
+}
+
+// Predict whether unpacking an SFX would yield a playable bundle. Without this
+// check we'd happily unpack installers like Blood's SFX-wrapped INSTALL.EXE,
+// trading one broken state for another. The launcher detector is run against
+// the post-unpack file list and must come back with a real game launcher.
+function wouldYieldPlayableLauncher(zip, sfxEntry, innerEntries) {
+  const baseDir = sfxEntry.entryName.slice(0, sfxEntry.entryName.lastIndexOf("/") + 1);
+  const gamePaths = [];
+  for (const entry of zip.getEntries()) {
+    if (entry.isDirectory) continue;
+    if (entry.entryName === sfxEntry.entryName) continue; // sfx is being removed
+    if (!entry.entryName.startsWith("GAME/")) continue;
+    gamePaths.push(entry.entryName.slice("GAME/".length));
+  }
+  for (const inner of innerEntries) {
+    if (inner.isDirectory) continue;
+    const safeName = inner.entryName.replace(/^\/+/, "").replace(/\\/g, "/");
+    if (!safeName) continue;
+    const fullPath = baseDir + safeName;
+    if (!fullPath.startsWith("GAME/")) continue;
+    gamePaths.push(fullPath.slice("GAME/".length));
+  }
+  return isPlayableLauncher(detectLauncher(gamePaths));
+}
+
+// Unpack every self-extracting ZIP EXE found under GAME/. Inner files are placed
+// alongside the SFX (same directory), the SFX itself is removed. Returns true
+// when at least one SFX was unpacked. SFX archives whose contents only contain
+// installers/utilities are left alone — unpacking them wouldn't make the bundle
+// any more playable.
+function unpackSfxArchives(zip) {
+  const candidates = zip.getEntries().filter(e =>
+    !e.isDirectory &&
+    e.entryName.startsWith("GAME/") &&
+    e.entryName.toLowerCase().endsWith(".exe")
+  );
+
+  let unpacked = false;
+
+  for (const entry of candidates) {
+    const data = entry.getData();
+    if (!looksLikeSfxZip(data)) continue;
+
+    const inner = readSfxEntries(data);
+    if (!inner) continue;
+
+    if (!wouldYieldPlayableLauncher(zip, entry, inner)) continue;
+
+    const baseDir = entry.entryName.slice(0, entry.entryName.lastIndexOf("/") + 1);
+    const existing = new Set(zip.getEntries().map(e => e.entryName.toLowerCase()));
+
+    for (const innerEntry of inner) {
+      const safeName = innerEntry.entryName.replace(/^\/+/, "").replace(/\\/g, "/");
+      if (!safeName) continue;
+      const targetPath = baseDir + safeName;
+      if (innerEntry.isDirectory) {
+        if (!existing.has(targetPath.toLowerCase())) {
+          zip.addFile(targetPath, Buffer.alloc(0));
+        }
+        continue;
+      }
+      if (existing.has(targetPath.toLowerCase())) continue; // don't overwrite existing files
+      zip.addFile(targetPath, innerEntry.getData());
+      existing.add(targetPath.toLowerCase());
+    }
+
+    zip.deleteFile(entry.entryName);
+    unpacked = true;
+  }
+
+  return unpacked;
 }
 
 /**
@@ -149,6 +250,14 @@ export async function patchBundles({ bundlesDir, dosboxTemplatePath }) {
     let changed = false;
     try {
       const zip = new AdmZip(filePath);
+
+      // 0. Unpack any self-extracting ZIP installers shipped as the launcher.
+      // These show up as "MZ...PK\x05\x06" — DOSBox can't run them, so we have
+      // to place the inner game files into the bundle ourselves.
+      if (unpackSfxArchives(zip)) {
+        changed = true;
+      }
+
       const entries = zip.getEntries();
       const existingPaths = new Set(entries.map(e => e.entryName));
 
