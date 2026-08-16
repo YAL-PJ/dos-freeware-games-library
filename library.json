@@ -1,18 +1,18 @@
 [
   {
-    "id": "skynet",
-    "title": "SkyNET",
-    "year": 1996,
-    "genre": "First-Person Shooter",
-    "category": "first-person-shooter",
+    "id": "ultizurk-iii-the-guildmasters-quest",
+    "title": "Ultizurk III: The GuildMaster's Quest",
+    "year": 1995,
+    "genre": "Role-Playing",
+    "category": "role-playing",
     "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/skynet",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=375",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/skydemo-1.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/ultizurk-iii-the-guildmasters-quest",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1201",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/ultizurk3-1.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/skynet.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/ultizurk-iii-the-guildmasters-quest.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -340,21 +340,21 @@
     ]
   },
   {
-    "id": "tetrix",
-    "title": "TETRIX",
-    "year": 1996,
-    "genre": "Puzzle",
-    "category": "puzzle",
-    "license": "Freeware",
+    "id": "vinyl-goddess-from-mars",
+    "title": "Vinyl Goddess from Mars",
+    "year": 1995,
+    "genre": "Platform",
+    "category": "platform",
+    "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/tetrix",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1765",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/tetrixfw-1.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/vinyl-goddess-from-mars",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=282",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/VINYL.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/tetrix.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/vinyl-goddess-from-mars.jsdos",
     "tags": [
-      "freeware",
+      "shareware",
       "dos",
       "auto-discovered"
     ]
@@ -680,19 +680,19 @@
     ]
   },
   {
-    "id": "connectris",
-    "title": "Connectris",
-    "year": 1996,
-    "genre": "Puzzle",
-    "category": "puzzle",
+    "id": "monuments-of-mars",
+    "title": "Monuments of Mars",
+    "year": 1991,
+    "genre": "Platform",
+    "category": "platform",
     "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/connectris",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=842",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/cnctrs_000.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/monuments-of-mars",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=300",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/MARS_000.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/connectris.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/monuments-of-mars.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -1020,6 +1020,26 @@
     ]
   },
   {
+    "id": "the-bards-lore",
+    "title": "The Bard's Lore",
+    "year": 1998,
+    "genre": "Role-Playing",
+    "category": "role-playing",
+    "license": "Freeware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/the-bards-lore",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1653",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/bardlore-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/the-bards-lore.jsdos",
+    "tags": [
+      "freeware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
     "id": "biobombers",
     "title": "Biobombers",
     "year": 1994,
@@ -1340,21 +1360,21 @@
     ]
   },
   {
-    "id": "pc-rally",
-    "title": "PC Rally",
+    "id": "worms",
+    "title": "Worms",
     "year": 1995,
-    "genre": "Racing",
-    "category": "racing",
-    "license": "Shareware",
+    "genre": "Turn-Based Strategy",
+    "category": "turn-based-strategy",
+    "license": "Freeware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/pc-rally",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1980",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/pcrally-1.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/worms",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=228",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/worms_logo.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/pc-rally.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/worms.jsdos",
     "tags": [
-      "shareware",
+      "freeware",
       "dos",
       "auto-discovered"
     ]
@@ -1680,21 +1700,21 @@
     ]
   },
   {
-    "id": "the-stalker",
-    "title": "The Stalker",
-    "year": 1994,
-    "genre": "Adventure",
-    "category": "adventure",
-    "license": "Shareware",
+    "id": "ms-pac-pc",
+    "title": "MS-PAC PC",
+    "year": 1995,
+    "genre": "Arcade",
+    "category": "arcade",
+    "license": "Freeware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/the-stalker",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1727",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/stalker-1.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/ms-pac-pc",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=142",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/mspac-1.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/the-stalker.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/ms-pac-pc.jsdos",
     "tags": [
-      "shareware",
+      "freeware",
       "dos",
       "auto-discovered"
     ]
@@ -2020,19 +2040,19 @@
     ]
   },
   {
-    "id": "xatax",
-    "title": "Xatax",
+    "id": "traffic-department-2192",
+    "title": "Traffic Department 2192",
     "year": 1994,
     "genre": "Shooter",
     "category": "shooter",
     "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/xatax",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=360",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/xatax1.gif",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/traffic-department-2192",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=204",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/td2192-1.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/xatax.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/traffic-department-2192.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -2360,19 +2380,19 @@
     ]
   },
   {
-    "id": "major-stryker",
-    "title": "Major Stryker",
-    "year": 1993,
-    "genre": "Shooter",
-    "category": "shooter",
+    "id": "x-men-the-ravages-of-apocalypse",
+    "title": "X-Men: The Ravages of Apocalypse",
+    "year": 1997,
+    "genre": "First-Person Shooter",
+    "category": "first-person-shooter",
     "license": "Freeware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/major-stryker",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=748",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/MAJOR-T.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/x-men-the-ravages-of-apocalypse",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=791",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/xmenroa-1.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/major-stryker.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/x-men-the-ravages-of-apocalypse.jsdos",
     "tags": [
       "freeware",
       "dos",
@@ -2700,19 +2720,19 @@
     ]
   },
   {
-    "id": "gobman",
-    "title": "Gobman",
-    "year": 1992,
-    "genre": "Arcade",
-    "category": "arcade",
+    "id": "cargo-bay",
+    "title": "Cargo Bay",
+    "year": 1995,
+    "genre": "Puzzle",
+    "category": "puzzle",
     "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/gobman",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=498",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/gobman1.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/cargo-bay",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=276",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/cargobay1.gif",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/gobman.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/cargo-bay.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -3040,19 +3060,19 @@
     ]
   },
   {
-    "id": "virtual-karts",
-    "title": "Virtual Karts",
+    "id": "lords-of-midnight-the-citadel",
+    "title": "Lords of Midnight: The Citadel",
     "year": 1995,
-    "genre": "Racing",
-    "category": "racing",
+    "genre": "Role-Playing",
+    "category": "role-playing",
     "license": "Freeware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/virtual-karts",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=220",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/vkarts-1.png",
-    "metadataOnly": true,
-    "status": "failed",
-    "downloadUrl": "",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/lords-of-midnight-the-citadel",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1465",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/midnight-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/lords-of-midnight-the-citadel.jsdos",
     "tags": [
       "freeware",
       "dos",
@@ -3380,21 +3400,21 @@
     ]
   },
   {
-    "id": "mister-kid",
-    "title": "Mister Kid",
-    "year": 2001,
+    "id": "jazz-jackrabbit-holiday-hare-1995",
+    "title": "Jazz Jackrabbit: Holiday Hare 1995",
+    "year": 1995,
     "genre": "Platform",
     "category": "platform",
-    "license": "Freeware",
+    "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/mister-kid",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=2586",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/mister-kid-1.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/jazz-jackrabbit-holiday-hare-1995",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=510",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/jjx95-1.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/mister-kid.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/jazz-jackrabbit-holiday-hare-1995.jsdos",
     "tags": [
-      "freeware",
+      "shareware",
       "dos",
       "auto-discovered"
     ]
@@ -3720,19 +3740,19 @@
     ]
   },
   {
-    "id": "brix-20",
-    "title": "Brix 2.0",
-    "year": 1992,
-    "genre": "Puzzle",
-    "category": "puzzle",
+    "id": "sid-meiers-colonization",
+    "title": "Sid Meier's Colonization",
+    "year": 1994,
+    "genre": "Turn-Based Strategy",
+    "category": "turn-based-strategy",
     "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/brix-20",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=38",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/brix1-1.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/sid-meiers-colonization",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=540",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/colonization_000.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/brix-20.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/sid-meiers-colonization.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -4060,19 +4080,19 @@
     ]
   },
   {
-    "id": "hugos-house-of-horrors",
-    "title": "Hugo's House of Horrors",
-    "year": 1990,
-    "genre": "Adventure",
-    "category": "adventure",
+    "id": "rise-of-the-robots",
+    "title": "Rise of the Robots",
+    "year": 1994,
+    "genre": "Fighting",
+    "category": "fighting",
     "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/hugos-house-of-horrors",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=100",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/hugo1-1.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/rise-of-the-robots",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=924",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/rise-of-the-robots-1.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/hugos-house-of-horrors.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/rise-of-the-robots.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -4400,26 +4420,6 @@
     ]
   },
   {
-    "id": "quarantine",
-    "title": "Quarantine",
-    "year": 1994,
-    "genre": "First-Person Shooter",
-    "category": "first-person-shooter",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/quarantine",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1368",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/qdemo-1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/quarantine.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "kaos",
     "title": "Kaos",
     "year": 2003,
@@ -4740,19 +4740,19 @@
     ]
   },
   {
-    "id": "the-bards-lore",
-    "title": "The Bard's Lore",
-    "year": 1998,
-    "genre": "Role-Playing",
-    "category": "role-playing",
+    "id": "mario-and-luigi",
+    "title": "Mario & Luigi",
+    "year": 1994,
+    "genre": "Platform",
+    "category": "platform",
     "license": "Freeware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/the-bards-lore",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1653",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/bardlore-1.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/mario-and-luigi",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=129",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/mario-1.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/the-bards-lore.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/mario-and-luigi.jsdos",
     "tags": [
       "freeware",
       "dos",
@@ -5080,41 +5080,21 @@
     ]
   },
   {
-    "id": "xmas-lemmings",
-    "title": "Xmas Lemmings",
+    "id": "paganitzu",
+    "title": "Paganitzu",
     "year": 1991,
     "genre": "Puzzle",
     "category": "puzzle",
-    "license": "Freeware",
+    "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/xmas-lemmings",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=122",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/xmaslemm-1.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/paganitzu",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=750",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/paga1_000.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/xmas-lemmings.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/paganitzu.jsdos",
     "tags": [
-      "freeware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
-    "id": "mario-and-luigi",
-    "title": "Mario & Luigi",
-    "year": 1994,
-    "genre": "Platform",
-    "category": "platform",
-    "license": "Freeware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/mario-and-luigi",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=129",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/mario-1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/mario-and-luigi.jsdos",
-    "tags": [
-      "freeware",
+      "shareware",
       "dos",
       "auto-discovered"
     ]
@@ -5420,21 +5400,21 @@
     ]
   },
   {
-    "id": "star-wars-rebel-assault-ii-the-hidden-empire",
-    "title": "Star Wars: Rebel Assault II: The Hidden Empire",
+    "id": "highway-hunter",
+    "title": "Highway Hunter",
     "year": 1995,
     "genre": "Shooter",
     "category": "shooter",
-    "license": "Freeware",
+    "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/star-wars-rebel-assault-ii-the-hidden-empire",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1338",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/ra2_screen01.jpg",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/highway-hunter",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=633",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/highway-hunter-1.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/star-wars-rebel-assault-ii-the-hidden-empire.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/highway-hunter.jsdos",
     "tags": [
-      "freeware",
+      "shareware",
       "dos",
       "auto-discovered"
     ]
@@ -5493,6 +5473,26 @@
     "metadataOnly": false,
     "status": "bundled",
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/mister-bike.jsdos",
+    "tags": [
+      "freeware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "mister-kid",
+    "title": "Mister Kid",
+    "year": 2001,
+    "genre": "Platform",
+    "category": "platform",
+    "license": "Freeware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/mister-kid",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=2586",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/mister-kid-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/mister-kid.jsdos",
     "tags": [
       "freeware",
       "dos",
@@ -5660,26 +5660,6 @@
     ]
   },
   {
-    "id": "ms-pac-pc",
-    "title": "MS-PAC PC",
-    "year": 1995,
-    "genre": "Arcade",
-    "category": "arcade",
-    "license": "Freeware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/ms-pac-pc",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=142",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/mspac-1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/ms-pac-pc.jsdos",
-    "tags": [
-      "freeware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "mule",
     "title": "MULE",
     "year": 1999,
@@ -5740,21 +5720,21 @@
     ]
   },
   {
-    "id": "bernie",
-    "title": "Bernie",
-    "year": 1993,
-    "genre": "Platform",
-    "category": "platform",
-    "license": "Shareware",
+    "id": "madden-nfl-97",
+    "title": "Madden NFL 97",
+    "year": 1996,
+    "genre": "Sport",
+    "category": "sport",
+    "license": "Freeware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/bernie",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1164",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/bernie-1.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/madden-nfl-97",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1550",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/madden97-1.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/bernie.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/madden-nfl-97.jsdos",
     "tags": [
-      "shareware",
+      "freeware",
       "dos",
       "auto-discovered"
     ]
@@ -6080,19 +6060,19 @@
     ]
   },
   {
-    "id": "big-red-racing",
-    "title": "Big Red Racing",
-    "year": 1995,
-    "genre": "Racing",
-    "category": "racing",
+    "id": "biprolex",
+    "title": "BIPROLEX+",
+    "year": 1997,
+    "genre": "Arcade",
+    "category": "arcade",
     "license": "Freeware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/big-red-racing",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=26",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/brr_ss2.gif",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/biprolex+",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=3082",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/biprolex-1.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/big-red-racing.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/biprolex.jsdos",
     "tags": [
       "freeware",
       "dos",
@@ -6420,19 +6400,19 @@
     ]
   },
   {
-    "id": "total-knockout-boxing",
-    "title": "Total Knockout Boxing",
+    "id": "crusader-no-regret",
+    "title": "Crusader: No Regret",
     "year": 1996,
-    "genre": "Sport",
-    "category": "sport",
+    "genre": "Shooter",
+    "category": "shooter",
     "license": "Freeware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/total-knockout-boxing",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=2501",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/totalko-1.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/crusader-no-regret",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=530",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/crusader_title.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/total-knockout-boxing.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/crusader-no-regret.jsdos",
     "tags": [
       "freeware",
       "dos",
@@ -6760,26 +6740,6 @@
     ]
   },
   {
-    "id": "nihilist",
-    "title": "Nihilist",
-    "year": 1996,
-    "genre": "First-Person Shooter",
-    "category": "first-person-shooter",
-    "license": "Freeware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/nihilist",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1200",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/nihilist-2.png",
-    "metadataOnly": true,
-    "status": "installer-only",
-    "downloadUrl": "",
-    "tags": [
-      "freeware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "pyromania",
     "title": "Pyromania",
     "year": 1997,
@@ -7100,19 +7060,19 @@
     ]
   },
   {
-    "id": "darts",
-    "title": "Darts",
-    "year": 1991,
-    "genre": "Traditional",
-    "category": "traditional",
+    "id": "word-rescue",
+    "title": "Word Rescue",
+    "year": 1992,
+    "genre": "Educational",
+    "category": "educational",
     "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/darts",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=65",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/darts1.gif",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/word-rescue",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=753",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/WRTITLE1.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/darts.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/word-rescue.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -7440,19 +7400,19 @@
     ]
   },
   {
-    "id": "the-dig",
-    "title": "The Dig",
-    "year": 1995,
-    "genre": "Adventure",
-    "category": "adventure",
+    "id": "gunship-2000",
+    "title": "Gunship 2000",
+    "year": 1991,
+    "genre": "Simulation",
+    "category": "simulation",
     "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/the-dig",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1666",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/dig-05.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/gunship-2000",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=535",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/gun2000_title.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/the-dig.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/gunship-2000.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -7780,21 +7740,21 @@
     ]
   },
   {
-    "id": "earthworm-jim-1-and-2-the-whole-can-o-worms",
-    "title": "Earthworm Jim 1 & 2: The Whole Can O' Worms",
-    "year": 1996,
-    "genre": "Platform",
-    "category": "platform",
-    "license": "Freeware",
+    "id": "kings-quest-ii-romancing-the-throne",
+    "title": "King's Quest II: Romancing the Throne",
+    "year": 1987,
+    "genre": "Adventure",
+    "category": "adventure",
+    "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/earthworm-jim-1-and-2-the-whole-can-o-worms",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=815",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/ewj2_menu.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/kings-quest-ii-romancing-the-throne",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=443",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/kingsquest-ii-1.gif",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/earthworm-jim-1-and-2-the-whole-can-o-worms.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/kings-quest-ii-romancing-the-throne.jsdos",
     "tags": [
-      "freeware",
+      "shareware",
       "dos",
       "auto-discovered"
     ]
@@ -8120,19 +8080,19 @@
     ]
   },
   {
-    "id": "empire-deluxe",
-    "title": "Empire Deluxe",
-    "year": 1993,
-    "genre": "Turn-Based Strategy",
-    "category": "turn-based-strategy",
+    "id": "3-d-pitfall",
+    "title": "3-D Pitfall",
+    "year": 1994,
+    "genre": "Puzzle",
+    "category": "puzzle",
     "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/empire-deluxe",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1313",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/emdelux-1.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/3-d-pitfall",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=2239",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/3dpit-1.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/empire-deluxe.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/3-d-pitfall.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -8460,19 +8420,19 @@
     ]
   },
   {
-    "id": "duke-nukem-3d",
-    "title": "Duke Nukem 3D",
-    "year": 1996,
-    "genre": "First-Person Shooter",
-    "category": "first-person-shooter",
+    "id": "buzz-aldrins-race-into-space",
+    "title": "Buzz Aldrin's Race into Space",
+    "year": 1993,
+    "genre": "Simulation",
+    "category": "simulation",
     "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/duke-nukem-3d",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=547",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/duke3d_title.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/buzz-aldrins-race-into-space",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=994",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/buzz_001.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/duke-nukem-3d.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/buzz-aldrins-race-into-space.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -8800,19 +8760,19 @@
     ]
   },
   {
-    "id": "brutal-paws-of-fury",
-    "title": "Brutal: Paws of Fury",
-    "year": 1995,
-    "genre": "Fighting",
-    "category": "fighting",
+    "id": "chasm-the-rift",
+    "title": "CHASM - The Rift",
+    "year": 1997,
+    "genre": "First-Person Shooter",
+    "category": "first-person-shooter",
     "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/brutal-paws-of-fury",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=851",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/brutal-1.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/chasm-the-rift",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=562",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/chasm-1.jpg",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/brutal-paws-of-fury.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/chasm-the-rift.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -9140,21 +9100,21 @@
     ]
   },
   {
-    "id": "legend-of-the-silver-talisman",
-    "title": "Legend of the Silver Talisman",
-    "year": 1996,
+    "id": "the-dig",
+    "title": "The Dig",
+    "year": 1995,
     "genre": "Adventure",
     "category": "adventure",
-    "license": "Freeware",
+    "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/legend-of-the-silver-talisman",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=840",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/legendofst-1.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/the-dig",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1666",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/dig-05.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/legend-of-the-silver-talisman.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/the-dig.jsdos",
     "tags": [
-      "freeware",
+      "shareware",
       "dos",
       "auto-discovered"
     ]
@@ -9480,19 +9440,19 @@
     ]
   },
   {
-    "id": "sango-fighter-2",
-    "title": "Sango Fighter 2",
-    "year": 1995,
-    "genre": "Fighting",
-    "category": "fighting",
+    "id": "terroid",
+    "title": "Terroid",
+    "year": 1997,
+    "genre": "Shooter",
+    "category": "shooter",
     "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/sango-fighter-2",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1102",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/sango2-title.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/terroid",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1182",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/terroidsw-1.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/sango-fighter-2.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/terroid.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -9820,21 +9780,21 @@
     ]
   },
   {
-    "id": "kings-quest-vii-the-princeless-bride",
-    "title": "King's Quest VII: The Princeless Bride",
+    "id": "beneath-a-steel-sky",
+    "title": "Beneath a Steel Sky",
     "year": 1994,
     "genre": "Adventure",
     "category": "adventure",
-    "license": "Shareware",
+    "license": "Freeware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/kings-quest-vii-the-princeless-bride",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1050",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/kq7_01.gif",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/beneath-a-steel-sky",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=253",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/steel-sky-1.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/kings-quest-vii-the-princeless-bride.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/beneath-a-steel-sky.jsdos",
     "tags": [
-      "shareware",
+      "freeware",
       "dos",
       "auto-discovered"
     ]
@@ -9980,39 +9940,19 @@
     ]
   },
   {
-    "id": "phase-2",
-    "title": "Phase 2",
-    "year": 1997,
-    "genre": "Shooter",
-    "category": "shooter",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/phase-2",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=3337",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/phase2-1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/phase-2.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
-    "id": "3-d-pitfall",
-    "title": "3-D Pitfall",
-    "year": 1994,
+    "id": "bust-a-move-2-arcade-edition",
+    "title": "Bust-A-Move 2: Arcade Edition",
+    "year": 1996,
     "genre": "Puzzle",
     "category": "puzzle",
     "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/3-d-pitfall",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=2239",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/3dpit-1.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/bust-a-move-2-arcade-edition",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=492",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/bm2_title.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/3-d-pitfall.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/bust-a-move-2-arcade-edition.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -10320,19 +10260,19 @@
     ]
   },
   {
-    "id": "twinsens-odyssey",
-    "title": "Twinsen's Odyssey",
-    "year": 1997,
-    "genre": "Adventure",
-    "category": "adventure",
+    "id": "corncob-3d",
+    "title": "Corncob 3D",
+    "year": 1992,
+    "genre": "Simulation",
+    "category": "simulation",
     "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/twinsens-odyssey",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=852",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/lba2-1.png",
-    "metadataOnly": true,
-    "status": "installer-only",
-    "downloadUrl": "",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/corncob-3d",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=821",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/cctitle_010.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/corncob-3d.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -10660,6 +10600,26 @@
     ]
   },
   {
+    "id": "alien-carnage",
+    "title": "Alien Carnage",
+    "year": 1993,
+    "genre": "Platform",
+    "category": "platform",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/alien-carnage",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=424",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/hhshow2_000.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/alien-carnage.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
     "id": "bars",
     "title": "BARS",
     "year": 1994,
@@ -10820,6 +10780,26 @@
     ]
   },
   {
+    "id": "bernie",
+    "title": "Bernie",
+    "year": 1993,
+    "genre": "Platform",
+    "category": "platform",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/bernie",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1164",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/bernie-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/bernie.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
     "id": "beyond-the-abyss",
     "title": "Beyond the Abyss",
     "year": 1994,
@@ -10960,21 +10940,21 @@
     ]
   },
   {
-    "id": "cybersphere-plus",
-    "title": "Cybersphere Plus",
-    "year": 1998,
-    "genre": "Arcade",
-    "category": "arcade",
-    "license": "Freeware",
+    "id": "hugo-ii-whodunit",
+    "title": "Hugo II, Whodunit?",
+    "year": 1991,
+    "genre": "Adventure",
+    "category": "adventure",
+    "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/cybersphere-plus",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=876",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/plusdemo-1.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/hugo-ii-whodunit",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=101",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/hugo2.gif",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/cybersphere-plus.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/hugo-ii-whodunit.jsdos",
     "tags": [
-      "freeware",
+      "shareware",
       "dos",
       "auto-discovered"
     ]
@@ -11300,19 +11280,19 @@
     ]
   },
   {
-    "id": "pinball-fantasies",
-    "title": "Pinball Fantasies",
-    "year": 1994,
-    "genre": "Sport",
-    "category": "sport",
+    "id": "eradicator",
+    "title": "Eradicator",
+    "year": 1996,
+    "genre": "First-Person Shooter",
+    "category": "first-person-shooter",
     "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/pinball-fantasies",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=157",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/pinballfan1.gif",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/eradicator",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=395",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/erad_title.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/pinball-fantasies.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/eradicator.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -11353,6 +11333,26 @@
     "metadataOnly": false,
     "status": "bundled",
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/brix-dlugosz-software.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "brix-20",
+    "title": "Brix 2.0",
+    "year": 1992,
+    "genre": "Puzzle",
+    "category": "puzzle",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/brix-20",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=38",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/brix1-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/brix-20.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -11560,26 +11560,6 @@
     ]
   },
   {
-    "id": "cargo-bay",
-    "title": "Cargo Bay",
-    "year": 1995,
-    "genre": "Puzzle",
-    "category": "puzzle",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/cargo-bay",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=276",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/cargobay1.gif",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/cargo-bay.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "the-catacomb-abyss",
     "title": "The Catacomb Abyss",
     "year": 1992,
@@ -11613,6 +11593,26 @@
     "metadataOnly": false,
     "status": "bundled",
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/cats-on-broombas.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "the-sword-of-ares",
+    "title": "The Sword of Ares",
+    "year": 1998,
+    "genre": "First-Person Shooter",
+    "category": "first-person-shooter",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/the-sword-of-ares",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=2344",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/tsoa-7.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/the-sword-of-ares.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -11733,26 +11733,6 @@
     "metadataOnly": false,
     "status": "bundled",
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/charly-the-clown.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
-    "id": "chasm-the-rift",
-    "title": "CHASM - The Rift",
-    "year": 1997,
-    "genre": "First-Person Shooter",
-    "category": "first-person-shooter",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/chasm-the-rift",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=562",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/chasm-1.jpg",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/chasm-the-rift.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -11940,19 +11920,19 @@
     ]
   },
   {
-    "id": "warcraft-ii-tides-of-darkness",
-    "title": "Warcraft II: Tides of Darkness",
-    "year": 1995,
-    "genre": "Real-Time Strategy",
-    "category": "real-time-strategy",
+    "id": "duke-it-out-in-dc",
+    "title": "Duke it out in D.C.",
+    "year": 1997,
+    "genre": "Expansion Set",
+    "category": "expansion-set",
     "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/warcraft-ii-tides-of-darkness",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=799",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/war2_01.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/duke-it-out-in-dc",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=782",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/dukedc_cp1.jpg",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/warcraft-ii-tides-of-darkness.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/duke-it-out-in-dc.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -12060,6 +12040,26 @@
     ]
   },
   {
+    "id": "connectris",
+    "title": "Connectris",
+    "year": 1996,
+    "genre": "Puzzle",
+    "category": "puzzle",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/connectris",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=842",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/cnctrs_000.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/connectris.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
     "id": "the-continuing-adventures-of-cyberbox",
     "title": "The Continuing Adventures of CyberBox",
     "year": 1995,
@@ -12093,26 +12093,6 @@
     "metadataOnly": false,
     "status": "bundled",
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/cool-spot.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
-    "id": "corncob-3d",
-    "title": "Corncob 3D",
-    "year": 1992,
-    "genre": "Simulation",
-    "category": "simulation",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/corncob-3d",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=821",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/cctitle_010.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/corncob-3d.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -12260,6 +12240,26 @@
     ]
   },
   {
+    "id": "dragonsphere",
+    "title": "Dragonsphere",
+    "year": 1994,
+    "genre": "Adventure",
+    "category": "adventure",
+    "license": "Freeware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/dragonsphere",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=714",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/dragonsphere-1.gif",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/dragonsphere.jsdos",
+    "tags": [
+      "freeware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
     "id": "cyberbox",
     "title": "CyberBox",
     "year": 1991,
@@ -12373,6 +12373,26 @@
     "metadataOnly": false,
     "status": "bundled",
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/dark-passages.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "darts",
+    "title": "Darts",
+    "year": 1991,
+    "genre": "Traditional",
+    "category": "traditional",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/darts",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=65",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/darts1.gif",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/darts.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -12560,19 +12580,19 @@
     ]
   },
   {
-    "id": "drak",
-    "title": "Drak",
-    "year": 1995,
-    "genre": "Puzzle",
-    "category": "puzzle",
+    "id": "paybacktime-2",
+    "title": "PaybackTime 2",
+    "year": 1997,
+    "genre": "Turn-Based Strategy",
+    "category": "turn-based-strategy",
     "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/drak",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=902",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/drak_title.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/drak.jsdos",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/paybacktime-2",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=515",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/pbt2-1.png",
+    "metadataOnly": true,
+    "status": "installer-only",
+    "downloadUrl": "",
     "tags": [
       "shareware",
       "dos",
@@ -12780,6 +12800,26 @@
     ]
   },
   {
+    "id": "drak",
+    "title": "Drak",
+    "year": 1995,
+    "genre": "Puzzle",
+    "category": "puzzle",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/drak",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=902",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/drak_title.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/drak.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
     "id": "drake-snake-and-the-secret-crypt",
     "title": "Drake Snake and the Secret Crypt",
     "year": 1993,
@@ -12860,19 +12900,39 @@
     ]
   },
   {
-    "id": "hurl",
-    "title": "H.U.R.L.",
-    "year": 1995,
+    "id": "silent-hunter",
+    "title": "Silent Hunter",
+    "year": 1996,
+    "genre": "Simulation",
+    "category": "simulation",
+    "license": "Freeware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/silent-hunter",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1496",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/shunter-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/silent-hunter.jsdos",
+    "tags": [
+      "freeware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "duke-nukem-3d",
+    "title": "Duke Nukem 3D",
+    "year": 1996,
     "genre": "First-Person Shooter",
     "category": "first-person-shooter",
     "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/hurl",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=690",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/hurl-1.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/duke-nukem-3d",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=547",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/duke3d_title.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/hurl.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/duke-nukem-3d.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -13175,26 +13235,6 @@
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/escape-from-ragor.jsdos",
     "tags": [
       "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
-    "id": "magic-the-gathering",
-    "title": "Magic: The Gathering",
-    "year": 1997,
-    "genre": "Traditional",
-    "category": "traditional",
-    "license": "Freeware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/magic-the-gathering",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=478",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/mtg_000.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/magic-the-gathering.jsdos",
-    "tags": [
-      "freeware",
       "dos",
       "auto-discovered"
     ]
@@ -13740,6 +13780,26 @@
     ]
   },
   {
+    "id": "gobman",
+    "title": "Gobman",
+    "year": 1992,
+    "genre": "Arcade",
+    "category": "arcade",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/gobman",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=498",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/gobman1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/gobman.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
     "id": "gold-runner",
     "title": "Gold Runner",
     "year": 1994,
@@ -13793,6 +13853,26 @@
     "metadataOnly": false,
     "status": "bundled",
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/guimo.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "hurl",
+    "title": "H.U.R.L.",
+    "year": 1995,
+    "genre": "First-Person Shooter",
+    "category": "first-person-shooter",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/hurl",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=690",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/hurl-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/hurl.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -13900,26 +13980,6 @@
     ]
   },
   {
-    "id": "highway-hunter",
-    "title": "Highway Hunter",
-    "year": 1995,
-    "genre": "Shooter",
-    "category": "shooter",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/highway-hunter",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=633",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/highway-hunter-1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/highway-hunter.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "hocus-pocus",
     "title": "Hocus Pocus",
     "year": 1994,
@@ -13960,26 +14020,6 @@
     ]
   },
   {
-    "id": "hugo-ii-whodunit",
-    "title": "Hugo II, Whodunit?",
-    "year": 1991,
-    "genre": "Adventure",
-    "category": "adventure",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/hugo-ii-whodunit",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=101",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/hugo2.gif",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/hugo-ii-whodunit.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "hugo-iii-jungle-of-doom",
     "title": "Hugo III, Jungle of Doom!",
     "year": 1992,
@@ -13993,6 +14033,26 @@
     "metadataOnly": false,
     "status": "bundled",
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/hugo-iii-jungle-of-doom.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "hugos-house-of-horrors",
+    "title": "Hugo's House of Horrors",
+    "year": 1990,
+    "genre": "Adventure",
+    "category": "adventure",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/hugos-house-of-horrors",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=100",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/hugo1-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/hugos-house-of-horrors.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -14075,26 +14135,6 @@
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/in-the-dead-of-night.jsdos",
     "tags": [
       "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
-    "id": "command-and-conquer",
-    "title": "Command & Conquer",
-    "year": 1995,
-    "genre": "Real-Time Strategy",
-    "category": "real-time-strategy",
-    "license": "Freeware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/command-and-conquer",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=59",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/cnc-1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/command-and-conquer.jsdos",
-    "tags": [
-      "freeware",
       "dos",
       "auto-discovered"
     ]
@@ -14320,26 +14360,6 @@
     ]
   },
   {
-    "id": "jazz-jackrabbit-holiday-hare-1995",
-    "title": "Jazz Jackrabbit: Holiday Hare 1995",
-    "year": 1995,
-    "genre": "Platform",
-    "category": "platform",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/jazz-jackrabbit-holiday-hare-1995",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=510",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/jjx95-1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/jazz-jackrabbit-holiday-hare-1995.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "the-jelly-bean-factory",
     "title": "The Jelly Bean Factory",
     "year": 1993,
@@ -14420,21 +14440,21 @@
     ]
   },
   {
-    "id": "donald-ducks-playground",
-    "title": "Donald Duck's Playground",
-    "year": 1986,
-    "genre": "Educational",
-    "category": "educational",
-    "license": "Freeware",
+    "id": "out-of-this-world",
+    "title": "Out of This World",
+    "year": 1992,
+    "genre": "Platform",
+    "category": "platform",
+    "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/donald-ducks-playground",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=74",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/donaldduck1.gif",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/out-of-this-world",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=795",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/awdemo-1.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/donald-ducks-playground.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/out-of-this-world.jsdos",
     "tags": [
-      "freeware",
+      "shareware",
       "dos",
       "auto-discovered"
     ]
@@ -14753,26 +14773,6 @@
     "metadataOnly": false,
     "status": "bundled",
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/lomax-boulders.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
-    "id": "kings-quest-vi-heir-today-gone-tomorrow",
-    "title": "King's Quest VI: Heir Today, Gone Tomorrow",
-    "year": 1992,
-    "genre": "Adventure",
-    "category": "adventure",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/kings-quest-vi-heir-today-gone-tomorrow",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1065",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/kq6_title.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/kings-quest-vi-heir-today-gone-tomorrow.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -15100,19 +15100,19 @@
     ]
   },
   {
-    "id": "megarace",
-    "title": "MegaRace",
-    "year": 1993,
-    "genre": "Racing",
-    "category": "racing",
+    "id": "tristix",
+    "title": "Tristix",
+    "year": 1996,
+    "genre": "Puzzle",
+    "category": "puzzle",
     "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/megarace",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=926",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/megarace_000.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/tristix",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=2745",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/tristix-1.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/megarace.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/tristix.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -15440,21 +15440,21 @@
     ]
   },
   {
-    "id": "descent-ii",
-    "title": "Descent II",
-    "year": 1995,
-    "genre": "First-Person Shooter",
-    "category": "first-person-shooter",
-    "license": "Shareware",
+    "id": "ultimate-warrior",
+    "title": "Ultimate Warrior",
+    "year": 1996,
+    "genre": "Fighting",
+    "category": "fighting",
+    "license": "Freeware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/descent-ii",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=777",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/descent2_title.png",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/ultimate-warrior",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1795",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/uwarrior-1.png",
     "metadataOnly": false,
     "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/descent-ii.jsdos",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/ultimate-warrior.jsdos",
     "tags": [
-      "shareware",
+      "freeware",
       "dos",
       "auto-discovered"
     ]
@@ -15600,26 +15600,6 @@
     ]
   },
   {
-    "id": "paganitzu",
-    "title": "Paganitzu",
-    "year": 1991,
-    "genre": "Puzzle",
-    "category": "puzzle",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/paganitzu",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=750",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/paga1_000.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/paganitzu.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "pako-2",
     "title": "Pako 2",
     "year": 1995,
@@ -15653,6 +15633,26 @@
     "metadataOnly": false,
     "status": "bundled",
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/paranoid.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "pc-rally",
+    "title": "PC Rally",
+    "year": 1995,
+    "genre": "Racing",
+    "category": "racing",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/pc-rally",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1980",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/pcrally-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/pc-rally.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -15720,6 +15720,26 @@
     ]
   },
   {
+    "id": "phase-2",
+    "title": "Phase 2",
+    "year": 1997,
+    "genre": "Shooter",
+    "category": "shooter",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/phase-2",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=3337",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/phase2-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/phase-2.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
     "id": "phylox",
     "title": "Phylox",
     "year": 1992,
@@ -15733,26 +15753,6 @@
     "metadataOnly": false,
     "status": "bundled",
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/phylox.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
-    "id": "micro-machines",
-    "title": "Micro Machines",
-    "year": 1994,
-    "genre": "Racing",
-    "category": "racing",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/micro-machines",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=475",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/micromachines1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/micro-machines.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -16060,26 +16060,6 @@
     ]
   },
   {
-    "id": "muzzle-velocity",
-    "title": "Muzzle Velocity",
-    "year": 1996,
-    "genre": "Real-Time Strategy",
-    "category": "real-time-strategy",
-    "license": "Freeware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/muzzle-velocity",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1953",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/muzzle-1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/muzzle-velocity.jsdos",
-    "tags": [
-      "freeware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "raptor-call-of-the-shadows",
     "title": "Raptor: Call of the Shadows",
     "year": 1994,
@@ -16193,26 +16173,6 @@
     "metadataOnly": false,
     "status": "bundled",
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/rings-of-the-magi.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
-    "id": "rise-of-the-robots",
-    "title": "Rise of the Robots",
-    "year": 1994,
-    "genre": "Fighting",
-    "category": "fighting",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/rise-of-the-robots",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=924",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/rise-of-the-robots-1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/rise-of-the-robots.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -16393,26 +16353,6 @@
     "metadataOnly": false,
     "status": "bundled",
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/rollin.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
-    "id": "burnout-championship-drag-racing",
-    "title": "Burnout: Championship Drag Racing",
-    "year": 1998,
-    "genre": "Racing",
-    "category": "racing",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/burnout-championship-drag-racing",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1546",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/burnout-1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/burnout-championship-drag-racing.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -16740,26 +16680,6 @@
     ]
   },
   {
-    "id": "heroes-of-might-and-magic-ii-the-succession-wars",
-    "title": "Heroes of Might and Magic II: The Succession Wars",
-    "year": 1996,
-    "genre": "Turn-Based Strategy",
-    "category": "turn-based-strategy",
-    "license": "Freeware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/heroes-of-might-and-magic-ii-the-succession-wars",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=966",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/heroes2-1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/heroes-of-might-and-magic-ii-the-succession-wars.jsdos",
-    "tags": [
-      "freeware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "skunny",
     "title": "Skunny",
     "year": 1995,
@@ -17060,19 +16980,19 @@
     ]
   },
   {
-    "id": "indiana-jones-and-the-fate-of-atlantis",
-    "title": "Indiana Jones and the Fate of Atlantis",
-    "year": 1992,
+    "id": "relentless-twinsens-adventure",
+    "title": "Relentless: Twinsen's Adventure",
+    "year": 1994,
     "genre": "Adventure",
     "category": "adventure",
     "license": "Shareware",
     "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/indiana-jones-and-the-fate-of-atlantis",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=18",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/fatedemo-1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/indiana-jones-and-the-fate-of-atlantis.jsdos",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/relentless-twinsens-adventure",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=708",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/lba-1.png",
+    "metadataOnly": true,
+    "status": "installer-only",
+    "downloadUrl": "",
     "tags": [
       "shareware",
       "dos",
@@ -17320,6 +17240,26 @@
     ]
   },
   {
+    "id": "the-stalker",
+    "title": "The Stalker",
+    "year": 1994,
+    "genre": "Adventure",
+    "category": "adventure",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/the-stalker",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1727",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/stalker-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/the-stalker.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
     "id": "star-quest-i-in-the-27th-century",
     "title": "Star Quest I in the 27th Century",
     "year": 1995,
@@ -17375,6 +17315,26 @@
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/stelcon-2469.jsdos",
     "tags": [
       "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "alien-trilogy",
+    "title": "Alien Trilogy",
+    "year": 1996,
+    "genre": "First-Person Shooter",
+    "category": "first-person-shooter",
+    "license": "Freeware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/alien-trilogy",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=970",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/trilogy_menu.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/alien-trilogy.jsdos",
+    "tags": [
+      "freeware",
       "dos",
       "auto-discovered"
     ]
@@ -17640,26 +17600,6 @@
     ]
   },
   {
-    "id": "the-sword-of-ares",
-    "title": "The Sword of Ares",
-    "year": 1998,
-    "genre": "First-Person Shooter",
-    "category": "first-person-shooter",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/the-sword-of-ares",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=2344",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/tsoa-7.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/the-sword-of-ares.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "sword-quest-1-the-search",
     "title": "Sword Quest 1: The Search",
     "year": 1992,
@@ -17693,26 +17633,6 @@
     "metadataOnly": false,
     "status": "bundled",
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/sword-quest-2-tale-of-the-talisman.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
-    "id": "disneys-beauty-and-the-beast-be-our-guest",
-    "title": "Disney's Beauty and the Beast: Be Our Guest",
-    "year": 1992,
-    "genre": "Puzzle",
-    "category": "puzzle",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/disneys-beauty-and-the-beast-be-our-guest",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=500",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/dosbox 2014-09-20 16-04-39-13.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/disneys-beauty-and-the-beast-be-our-guest.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -17793,26 +17713,6 @@
     "metadataOnly": false,
     "status": "bundled",
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/terminal-velocity.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
-    "id": "terroid",
-    "title": "Terroid",
-    "year": 1997,
-    "genre": "Shooter",
-    "category": "shooter",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/terroid",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1182",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/terroidsw-1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/terroid.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -18040,6 +17940,26 @@
     ]
   },
   {
+    "id": "alone-in-the-dark-2",
+    "title": "Alone in the Dark 2",
+    "year": 1994,
+    "genre": "Adventure",
+    "category": "adventure",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/alone-in-the-dark-2",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=310",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/aitd2-1.png",
+    "metadataOnly": true,
+    "status": "failed",
+    "downloadUrl": "",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
     "id": "twork",
     "title": "Twork",
     "year": 1996,
@@ -18053,26 +17973,6 @@
     "metadataOnly": false,
     "status": "bundled",
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/twork.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
-    "id": "ultizurk-iii-the-guildmasters-quest",
-    "title": "Ultizurk III: The GuildMaster's Quest",
-    "year": 1995,
-    "genre": "Role-Playing",
-    "category": "role-playing",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/ultizurk-iii-the-guildmasters-quest",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1201",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/ultizurk3-1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/ultizurk-iii-the-guildmasters-quest.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -18240,26 +18140,6 @@
     ]
   },
   {
-    "id": "vinyl-goddess-from-mars",
-    "title": "Vinyl Goddess from Mars",
-    "year": 1995,
-    "genre": "Platform",
-    "category": "platform",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/vinyl-goddess-from-mars",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=282",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/VINYL.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/vinyl-goddess-from-mars.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "voodoo-lunch",
     "title": "Voodoo Lunch",
     "year": 1996,
@@ -18373,6 +18253,26 @@
     "metadataOnly": false,
     "status": "bundled",
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/war-8.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "warcraft-ii-tides-of-darkness",
+    "title": "Warcraft II: Tides of Darkness",
+    "year": 1995,
+    "genre": "Real-Time Strategy",
+    "category": "real-time-strategy",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/warcraft-ii-tides-of-darkness",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=799",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/war2_01.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/warcraft-ii-tides-of-darkness.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -18540,26 +18440,6 @@
     ]
   },
   {
-    "id": "word-rescue",
-    "title": "Word Rescue",
-    "year": 1992,
-    "genre": "Educational",
-    "category": "educational",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/word-rescue",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=753",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/WRTITLE1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/word-rescue.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "wrath-of-earth",
     "title": "Wrath of Earth",
     "year": 1995,
@@ -18573,6 +18453,26 @@
     "metadataOnly": false,
     "status": "bundled",
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/wrath-of-earth.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "xatax",
+    "title": "Xatax",
+    "year": 1994,
+    "genre": "Shooter",
+    "category": "shooter",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/xatax",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=360",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/xatax1.gif",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/xatax.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -18635,26 +18535,6 @@
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/yendorian-tales-book-i.jsdos",
     "tags": [
       "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
-    "id": "eye-of-the-beholder-ii-the-legend-of-darkmoon",
-    "title": "Eye of the Beholder II: The Legend of Darkmoon",
-    "year": 1991,
-    "genre": "Role-Playing",
-    "category": "role-playing",
-    "license": "Freeware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/eye-of-the-beholder-ii-the-legend-of-darkmoon",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1118",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/eob2-1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/eye-of-the-beholder-ii-the-legend-of-darkmoon.jsdos",
-    "tags": [
-      "freeware",
       "dos",
       "auto-discovered"
     ]
@@ -18815,6 +18695,586 @@
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/zyr.jsdos",
     "tags": [
       "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "skynet",
+    "title": "SkyNET",
+    "year": 1996,
+    "genre": "First-Person Shooter",
+    "category": "first-person-shooter",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/skynet",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=375",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/skydemo-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/skynet.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "tetrix",
+    "title": "TETRIX",
+    "year": 1996,
+    "genre": "Puzzle",
+    "category": "puzzle",
+    "license": "Freeware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/tetrix",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1765",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/tetrixfw-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/tetrix.jsdos",
+    "tags": [
+      "freeware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "major-stryker",
+    "title": "Major Stryker",
+    "year": 1993,
+    "genre": "Shooter",
+    "category": "shooter",
+    "license": "Freeware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/major-stryker",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=748",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/MAJOR-T.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/major-stryker.jsdos",
+    "tags": [
+      "freeware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "quarantine",
+    "title": "Quarantine",
+    "year": 1994,
+    "genre": "First-Person Shooter",
+    "category": "first-person-shooter",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/quarantine",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1368",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/qdemo-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/quarantine.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "xmas-lemmings",
+    "title": "Xmas Lemmings",
+    "year": 1991,
+    "genre": "Puzzle",
+    "category": "puzzle",
+    "license": "Freeware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/xmas-lemmings",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=122",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/xmaslemm-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/xmas-lemmings.jsdos",
+    "tags": [
+      "freeware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "star-wars-rebel-assault-ii-the-hidden-empire",
+    "title": "Star Wars: Rebel Assault II: The Hidden Empire",
+    "year": 1995,
+    "genre": "Shooter",
+    "category": "shooter",
+    "license": "Freeware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/star-wars-rebel-assault-ii-the-hidden-empire",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1338",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/ra2_screen01.jpg",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/star-wars-rebel-assault-ii-the-hidden-empire.jsdos",
+    "tags": [
+      "freeware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "big-red-racing",
+    "title": "Big Red Racing",
+    "year": 1995,
+    "genre": "Racing",
+    "category": "racing",
+    "license": "Freeware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/big-red-racing",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=26",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/brr_ss2.gif",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/big-red-racing.jsdos",
+    "tags": [
+      "freeware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "total-knockout-boxing",
+    "title": "Total Knockout Boxing",
+    "year": 1996,
+    "genre": "Sport",
+    "category": "sport",
+    "license": "Freeware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/total-knockout-boxing",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=2501",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/totalko-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/total-knockout-boxing.jsdos",
+    "tags": [
+      "freeware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "earthworm-jim-1-and-2-the-whole-can-o-worms",
+    "title": "Earthworm Jim 1 & 2: The Whole Can O' Worms",
+    "year": 1996,
+    "genre": "Platform",
+    "category": "platform",
+    "license": "Freeware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/earthworm-jim-1-and-2-the-whole-can-o-worms",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=815",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/ewj2_menu.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/earthworm-jim-1-and-2-the-whole-can-o-worms.jsdos",
+    "tags": [
+      "freeware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "empire-deluxe",
+    "title": "Empire Deluxe",
+    "year": 1993,
+    "genre": "Turn-Based Strategy",
+    "category": "turn-based-strategy",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/empire-deluxe",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1313",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/emdelux-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/empire-deluxe.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "brutal-paws-of-fury",
+    "title": "Brutal: Paws of Fury",
+    "year": 1995,
+    "genre": "Fighting",
+    "category": "fighting",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/brutal-paws-of-fury",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=851",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/brutal-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/brutal-paws-of-fury.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "legend-of-the-silver-talisman",
+    "title": "Legend of the Silver Talisman",
+    "year": 1996,
+    "genre": "Adventure",
+    "category": "adventure",
+    "license": "Freeware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/legend-of-the-silver-talisman",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=840",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/legendofst-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/legend-of-the-silver-talisman.jsdos",
+    "tags": [
+      "freeware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "sango-fighter-2",
+    "title": "Sango Fighter 2",
+    "year": 1995,
+    "genre": "Fighting",
+    "category": "fighting",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/sango-fighter-2",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1102",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/sango2-title.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/sango-fighter-2.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "kings-quest-vii-the-princeless-bride",
+    "title": "King's Quest VII: The Princeless Bride",
+    "year": 1994,
+    "genre": "Adventure",
+    "category": "adventure",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/kings-quest-vii-the-princeless-bride",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1050",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/kq7_01.gif",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/kings-quest-vii-the-princeless-bride.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "cybersphere-plus",
+    "title": "Cybersphere Plus",
+    "year": 1998,
+    "genre": "Arcade",
+    "category": "arcade",
+    "license": "Freeware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/cybersphere-plus",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=876",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/plusdemo-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/cybersphere-plus.jsdos",
+    "tags": [
+      "freeware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "pinball-fantasies",
+    "title": "Pinball Fantasies",
+    "year": 1994,
+    "genre": "Sport",
+    "category": "sport",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/pinball-fantasies",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=157",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/pinballfan1.gif",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/pinball-fantasies.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "magic-the-gathering",
+    "title": "Magic: The Gathering",
+    "year": 1997,
+    "genre": "Traditional",
+    "category": "traditional",
+    "license": "Freeware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/magic-the-gathering",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=478",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/mtg_000.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/magic-the-gathering.jsdos",
+    "tags": [
+      "freeware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "command-and-conquer",
+    "title": "Command & Conquer",
+    "year": 1995,
+    "genre": "Real-Time Strategy",
+    "category": "real-time-strategy",
+    "license": "Freeware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/command-and-conquer",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=59",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/cnc-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/command-and-conquer.jsdos",
+    "tags": [
+      "freeware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "donald-ducks-playground",
+    "title": "Donald Duck's Playground",
+    "year": 1986,
+    "genre": "Educational",
+    "category": "educational",
+    "license": "Freeware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/donald-ducks-playground",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=74",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/donaldduck1.gif",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/donald-ducks-playground.jsdos",
+    "tags": [
+      "freeware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "kings-quest-vi-heir-today-gone-tomorrow",
+    "title": "King's Quest VI: Heir Today, Gone Tomorrow",
+    "year": 1992,
+    "genre": "Adventure",
+    "category": "adventure",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/kings-quest-vi-heir-today-gone-tomorrow",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1065",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/kq6_title.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/kings-quest-vi-heir-today-gone-tomorrow.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "megarace",
+    "title": "MegaRace",
+    "year": 1993,
+    "genre": "Racing",
+    "category": "racing",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/megarace",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=926",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/megarace_000.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/megarace.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "descent-ii",
+    "title": "Descent II",
+    "year": 1995,
+    "genre": "First-Person Shooter",
+    "category": "first-person-shooter",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/descent-ii",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=777",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/descent2_title.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/descent-ii.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "micro-machines",
+    "title": "Micro Machines",
+    "year": 1994,
+    "genre": "Racing",
+    "category": "racing",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/micro-machines",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=475",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/micromachines1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/micro-machines.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "muzzle-velocity",
+    "title": "Muzzle Velocity",
+    "year": 1996,
+    "genre": "Real-Time Strategy",
+    "category": "real-time-strategy",
+    "license": "Freeware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/muzzle-velocity",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1953",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/muzzle-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/muzzle-velocity.jsdos",
+    "tags": [
+      "freeware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "burnout-championship-drag-racing",
+    "title": "Burnout: Championship Drag Racing",
+    "year": 1998,
+    "genre": "Racing",
+    "category": "racing",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/burnout-championship-drag-racing",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1546",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/burnout-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/burnout-championship-drag-racing.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "heroes-of-might-and-magic-ii-the-succession-wars",
+    "title": "Heroes of Might and Magic II: The Succession Wars",
+    "year": 1996,
+    "genre": "Turn-Based Strategy",
+    "category": "turn-based-strategy",
+    "license": "Freeware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/heroes-of-might-and-magic-ii-the-succession-wars",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=966",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/heroes2-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/heroes-of-might-and-magic-ii-the-succession-wars.jsdos",
+    "tags": [
+      "freeware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "indiana-jones-and-the-fate-of-atlantis",
+    "title": "Indiana Jones and the Fate of Atlantis",
+    "year": 1992,
+    "genre": "Adventure",
+    "category": "adventure",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/indiana-jones-and-the-fate-of-atlantis",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=18",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/fatedemo-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/indiana-jones-and-the-fate-of-atlantis.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "disneys-beauty-and-the-beast-be-our-guest",
+    "title": "Disney's Beauty and the Beast: Be Our Guest",
+    "year": 1992,
+    "genre": "Puzzle",
+    "category": "puzzle",
+    "license": "Shareware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/disneys-beauty-and-the-beast-be-our-guest",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=500",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/dosbox 2014-09-20 16-04-39-13.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/disneys-beauty-and-the-beast-be-our-guest.jsdos",
+    "tags": [
+      "shareware",
+      "dos",
+      "auto-discovered"
+    ]
+  },
+  {
+    "id": "eye-of-the-beholder-ii-the-legend-of-darkmoon",
+    "title": "Eye of the Beholder II: The Legend of Darkmoon",
+    "year": 1991,
+    "genre": "Role-Playing",
+    "category": "role-playing",
+    "license": "Freeware",
+    "source": "dosgamesarchive",
+    "sourceUrl": "https://www.dosgamesarchive.com/download/eye-of-the-beholder-ii-the-legend-of-darkmoon",
+    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1118",
+    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/eob2-1.png",
+    "metadataOnly": false,
+    "status": "bundled",
+    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/eye-of-the-beholder-ii-the-legend-of-darkmoon.jsdos",
+    "tags": [
+      "freeware",
       "dos",
       "auto-discovered"
     ]
@@ -19280,26 +19740,6 @@
     ]
   },
   {
-    "id": "bust-a-move-2-arcade-edition",
-    "title": "Bust-A-Move 2: Arcade Edition",
-    "year": 1996,
-    "genre": "Puzzle",
-    "category": "puzzle",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/bust-a-move-2-arcade-edition",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=492",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/bm2_title.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/bust-a-move-2-arcade-edition.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "warlords-ii-deluxe",
     "title": "Warlords II Deluxe",
     "year": 1995,
@@ -19720,26 +20160,6 @@
     ]
   },
   {
-    "id": "alien-carnage",
-    "title": "Alien Carnage",
-    "year": 1993,
-    "genre": "Platform",
-    "category": "platform",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/alien-carnage",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=424",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/hhshow2_000.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/alien-carnage.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "zool",
     "title": "Zool",
     "year": 1993,
@@ -20080,26 +20500,6 @@
     ]
   },
   {
-    "id": "kings-quest-ii-romancing-the-throne",
-    "title": "King's Quest II: Romancing the Throne",
-    "year": 1987,
-    "genre": "Adventure",
-    "category": "adventure",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/kings-quest-ii-romancing-the-throne",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=443",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/kingsquest-ii-1.gif",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/kings-quest-ii-romancing-the-throne.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "air-power-battle-in-the-skies",
     "title": "Air Power: Battle in the Skies",
     "year": 1995,
@@ -20135,26 +20535,6 @@
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/prehistorik-2.jsdos",
     "tags": [
       "freeware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
-    "id": "duke-it-out-in-dc",
-    "title": "Duke it out in D.C.",
-    "year": 1997,
-    "genre": "Expansion Set",
-    "category": "expansion-set",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/duke-it-out-in-dc",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=782",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/dukedc_cp1.jpg",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/duke-it-out-in-dc.jsdos",
-    "tags": [
-      "shareware",
       "dos",
       "auto-discovered"
     ]
@@ -20660,26 +21040,6 @@
     ]
   },
   {
-    "id": "beneath-a-steel-sky",
-    "title": "Beneath a Steel Sky",
-    "year": 1994,
-    "genre": "Adventure",
-    "category": "adventure",
-    "license": "Freeware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/beneath-a-steel-sky",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=253",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/steel-sky-1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/beneath-a-steel-sky.jsdos",
-    "tags": [
-      "freeware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "simon-the-sorcerer-ii-the-lion-the-wizard-and-the-wardrobe",
     "title": "Simon the Sorcerer II: The Lion, the Wizard and the Wardrobe",
     "year": 1995,
@@ -20820,26 +21180,6 @@
     ]
   },
   {
-    "id": "alien-trilogy",
-    "title": "Alien Trilogy",
-    "year": 1996,
-    "genre": "First-Person Shooter",
-    "category": "first-person-shooter",
-    "license": "Freeware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/alien-trilogy",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=970",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/trilogy_menu.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/alien-trilogy.jsdos",
-    "tags": [
-      "freeware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "carmageddon",
     "title": "Carmageddon",
     "year": 1997,
@@ -20920,26 +21260,6 @@
     ]
   },
   {
-    "id": "madden-nfl-97",
-    "title": "Madden NFL 97",
-    "year": 1996,
-    "genre": "Sport",
-    "category": "sport",
-    "license": "Freeware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/madden-nfl-97",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1550",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/madden97-1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/madden-nfl-97.jsdos",
-    "tags": [
-      "freeware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "thunderscape",
     "title": "Thunderscape",
     "year": 1995,
@@ -20975,26 +21295,6 @@
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/cannon-fodder-2.jsdos",
     "tags": [
       "freeware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
-    "id": "tristix",
-    "title": "Tristix",
-    "year": 1996,
-    "genre": "Puzzle",
-    "category": "puzzle",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/tristix",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=2745",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/tristix-1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/tristix.jsdos",
-    "tags": [
-      "shareware",
       "dos",
       "auto-discovered"
     ]
@@ -21413,26 +21713,6 @@
     "metadataOnly": false,
     "status": "bundled",
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/steel-panthers-ii-modern-battles.jsdos",
-    "tags": [
-      "freeware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
-    "id": "dragonsphere",
-    "title": "Dragonsphere",
-    "year": 1994,
-    "genre": "Adventure",
-    "category": "adventure",
-    "license": "Freeware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/dragonsphere",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=714",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/dragonsphere-1.gif",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/dragonsphere.jsdos",
     "tags": [
       "freeware",
       "dos",
@@ -23420,26 +23700,6 @@
     ]
   },
   {
-    "id": "eradicator",
-    "title": "Eradicator",
-    "year": 1996,
-    "genre": "First-Person Shooter",
-    "category": "first-person-shooter",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/eradicator",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=395",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/erad_title.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/eradicator.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "theme-park",
     "title": "Theme Park",
     "year": 1994,
@@ -23540,26 +23800,6 @@
     ]
   },
   {
-    "id": "sid-meiers-colonization",
-    "title": "Sid Meier's Colonization",
-    "year": 1994,
-    "genre": "Turn-Based Strategy",
-    "category": "turn-based-strategy",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/sid-meiers-colonization",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=540",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/colonization_000.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/sid-meiers-colonization.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "redneck-rampage",
     "title": "Redneck Rampage",
     "year": 1997,
@@ -23613,46 +23853,6 @@
     "metadataOnly": false,
     "status": "bundled",
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/kens-labyrinth.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
-    "id": "crusader-no-regret",
-    "title": "Crusader: No Regret",
-    "year": 1996,
-    "genre": "Shooter",
-    "category": "shooter",
-    "license": "Freeware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/crusader-no-regret",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=530",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/crusader_title.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/crusader-no-regret.jsdos",
-    "tags": [
-      "freeware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
-    "id": "out-of-this-world",
-    "title": "Out of This World",
-    "year": 1992,
-    "genre": "Platform",
-    "category": "platform",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/out-of-this-world",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=795",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/awdemo-1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/out-of-this-world.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -24720,26 +24920,6 @@
     ]
   },
   {
-    "id": "x-men-the-ravages-of-apocalypse",
-    "title": "X-Men: The Ravages of Apocalypse",
-    "year": 1997,
-    "genre": "First-Person Shooter",
-    "category": "first-person-shooter",
-    "license": "Freeware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/x-men-the-ravages-of-apocalypse",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=791",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/xmenroa-1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/x-men-the-ravages-of-apocalypse.jsdos",
-    "tags": [
-      "freeware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "dune-ii-the-building-of-a-dynasty",
     "title": "Dune II: The Building of a Dynasty",
     "year": 1992,
@@ -24795,26 +24975,6 @@
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/might-and-magic-iii-isles-of-terra.jsdos",
     "tags": [
       "freeware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
-    "id": "monuments-of-mars",
-    "title": "Monuments of Mars",
-    "year": 1991,
-    "genre": "Platform",
-    "category": "platform",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/monuments-of-mars",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=300",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/MARS_000.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/monuments-of-mars.jsdos",
-    "tags": [
-      "shareware",
       "dos",
       "auto-discovered"
     ]
@@ -25120,26 +25280,6 @@
     ]
   },
   {
-    "id": "silent-hunter",
-    "title": "Silent Hunter",
-    "year": 1996,
-    "genre": "Simulation",
-    "category": "simulation",
-    "license": "Freeware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/silent-hunter",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1496",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/shunter-1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/silent-hunter.jsdos",
-    "tags": [
-      "freeware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "super-tetris",
     "title": "Super Tetris",
     "year": 1991,
@@ -25360,26 +25500,6 @@
     ]
   },
   {
-    "id": "buzz-aldrins-race-into-space",
-    "title": "Buzz Aldrin's Race into Space",
-    "year": 1993,
-    "genre": "Simulation",
-    "category": "simulation",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/buzz-aldrins-race-into-space",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=994",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/buzz_001.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/buzz-aldrins-race-into-space.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "bref",
     "title": "Bref",
     "year": 1997,
@@ -25480,26 +25600,6 @@
     ]
   },
   {
-    "id": "lords-of-midnight-the-citadel",
-    "title": "Lords of Midnight: The Citadel",
-    "year": 1995,
-    "genre": "Role-Playing",
-    "category": "role-playing",
-    "license": "Freeware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/lords-of-midnight-the-citadel",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1465",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/midnight-1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/lords-of-midnight-the-citadel.jsdos",
-    "tags": [
-      "freeware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "police-quest-iii-the-kindred",
     "title": "Police Quest III: The Kindred",
     "year": 1991,
@@ -25575,26 +25675,6 @@
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/amado.jsdos",
     "tags": [
       "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
-    "id": "ultimate-warrior",
-    "title": "Ultimate Warrior",
-    "year": 1996,
-    "genre": "Fighting",
-    "category": "fighting",
-    "license": "Freeware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/ultimate-warrior",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=1795",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/uwarrior-1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/ultimate-warrior.jsdos",
-    "tags": [
-      "freeware",
       "dos",
       "auto-discovered"
     ]
@@ -25933,26 +26013,6 @@
     "metadataOnly": false,
     "status": "bundled",
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/alien-cabal.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
-    "id": "gunship-2000",
-    "title": "Gunship 2000",
-    "year": 1991,
-    "genre": "Simulation",
-    "category": "simulation",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/gunship-2000",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=535",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/gun2000_title.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/gunship-2000.jsdos",
     "tags": [
       "shareware",
       "dos",
@@ -26420,26 +26480,6 @@
     ]
   },
   {
-    "id": "traffic-department-2192",
-    "title": "Traffic Department 2192",
-    "year": 1994,
-    "genre": "Shooter",
-    "category": "shooter",
-    "license": "Shareware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/traffic-department-2192",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=204",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/td2192-1.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/traffic-department-2192.jsdos",
-    "tags": [
-      "shareware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
     "id": "op-demo",
     "title": "oP Demo",
     "year": 1997,
@@ -26693,26 +26733,6 @@
     "metadataOnly": false,
     "status": "bundled",
     "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/chasm-level-pack.jsdos",
-    "tags": [
-      "freeware",
-      "dos",
-      "auto-discovered"
-    ]
-  },
-  {
-    "id": "worms",
-    "title": "Worms",
-    "year": 1995,
-    "genre": "Turn-Based Strategy",
-    "category": "turn-based-strategy",
-    "license": "Freeware",
-    "source": "dosgamesarchive",
-    "sourceUrl": "https://www.dosgamesarchive.com/download/worms",
-    "sourceDownloadUrl": "https://www.dosgamesarchive.com/file.php?id=228",
-    "screenshot": "https://image.dosgamesarchive.com/screenshots/thumbnails/worms_logo.png",
-    "metadataOnly": false,
-    "status": "bundled",
-    "downloadUrl": "https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles/worms.jsdos",
     "tags": [
       "freeware",
       "dos",
