@@ -267,7 +267,8 @@ export async function patchBundles({ bundlesDir, dosboxTemplatePath }) {
         .map(e => e.entryName.slice("GAME/".length))
         .filter(Boolean);
 
-      const rawLines = detectLauncher(gamePaths);
+      const readGameFile = rel => findEntry(zip, `GAME/${rel}`)?.getData().toString("latin1") ?? null;
+      const rawLines = detectLauncher(gamePaths, path.basename(file, ".jsdos"), readGameFile);
       const launcherLines = resolveWebBat(zip, rawLines);
       const newConf = buildConf(templateBase, launcherLines);
 
