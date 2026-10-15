@@ -2,6 +2,19 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import AdmZip from "adm-zip";
 import { downloadBuffer, ensureDir, writeJson, detectLauncher, isPlayableLauncher } from "./utils.mjs";
+import { inspectBundle } from "./inspect-bundle.mjs";
+
+// Manifest record for an entry whose bundle file exists. Bundles that cannot
+// start a DOS game (no launcher, missing file, Windows program) stay in the
+// repo but are listed as info-only, so players never get a dead launch.
+export function bundledEntry(entry, bundleName, bundlePath) {
+  const { playable, reason } = inspectBundle(bundlePath);
+  if (!playable) {
+    return { ...entry, bundleName, bundlePath, metadataOnly: true, status: "unplayable", failureReason: reason };
+  }
+  const { failureReason, ...rest } = entry;
+  return { ...rest, bundleName, bundlePath, metadataOnly: false, status: "bundled" };
+}
 
 function buildConf(templateBase, launcherLines) {
   const autoexec = ["@echo off", "mount c .", "c:", "cd GAME", ...launcherLines, "exit"].join("\n");
@@ -33,7 +46,7 @@ export async function buildBundles({ catalog, distDir, workDir, dosboxTemplatePa
       for (const checkPath of [bundlePath, repoBundlePath].filter(Boolean)) {
         try {
           await fs.access(checkPath);
-          manifest.push({ ...entry, bundleName, bundlePath: checkPath, metadataOnly: false, status: "bundled" });
+          manifest.push(bundledEntry(entry, bundleName, checkPath));
           skipped++;
           found = true;
           break;
@@ -103,7 +116,7 @@ export async function buildBundles({ catalog, distDir, workDir, dosboxTemplatePa
 
       bundleZip.writeZip(bundlePath);
 
-      manifest.push({ ...entry, bundleName, bundlePath, metadataOnly: false, status: "bundled" });
+      manifest.push(bundledEntry(entry, bundleName, bundlePath));
     } catch (error) {
       manifest.push({
         ...entry,
@@ -124,12 +137,12 @@ export async function buildBundles({ catalog, distDir, workDir, dosboxTemplatePa
     let preserved = 0;
     for (const existing of existingEntries) {
       if (catalogUrls.has(existing.sourceUrl)) continue;
-      if (existing.status !== "bundled") continue;
+      if (existing.status !== "bundled" && existing.status !== "unplayable") continue;
       const bundleName = `${existing.id}.jsdos`;
       const repoBundlePath = path.join(bundlesDir, bundleName);
       try {
         await fs.access(repoBundlePath);
-        manifest.push({ ...existing, bundleName, bundlePath: repoBundlePath, metadataOnly: false, status: "bundled" });
+        manifest.push(bundledEntry(existing, bundleName, repoBundlePath));
         preserved++;
       } catch { /* bundle file gone, let it drop */ }
     }

@@ -77,7 +77,7 @@ There are four main layers:
 | `sourceDownloadUrl` | Resolved source archive URL. |
 | `screenshot` | Remote screenshot URL, or an empty string. Images are not stored here. |
 | `metadataOnly` | `true` when no downloadable bundle is exposed by the record. |
-| `status` | Build outcome such as `bundled`, `installer-only`, or `failed`. |
+| `status` | Build outcome such as `bundled`, `installer-only`, `unplayable`, or `failed`. `unplayable` means the bundle exists but cannot start a DOS game (no launcher, missing launcher file, or a Windows program); it is listed as metadata-only. |
 | `downloadUrl` | Bundle URL for a bundled record; otherwise an empty string. |
 | `tags` | Source-generated descriptive strings. |
 
@@ -169,6 +169,9 @@ npm run library
 
 # Patch every committed bundle in place
 npm run patch
+
+# Re-check every committed bundle and mark unplayable ones metadata-only in library.json
+npm run audit
 ```
 
 The runner also accepts environment overrides for catalog, work, distribution, catalog output, repository, bundle directory, and bundle-base paths: `CPLAY_CATALOG_PATH`, `CPLAY_WORK_DIR`, `CPLAY_DIST_DIR`, `CPLAY_LIBRARY_JSON`, `CPLAY_LIBRARY_REPO_PATH`, `CPLAY_BUNDLES_DIR`, and `CPLAY_BUNDLE_BASE_URL`.

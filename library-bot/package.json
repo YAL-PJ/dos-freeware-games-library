@@ -8,7 +8,8 @@
     "scrape": "node src/run-bot.mjs --mode=scrape",
     "build": "node src/run-bot.mjs --mode=build",
     "library": "node src/run-bot.mjs --mode=library",
-    "patch": "node src/run-bot.mjs --mode=patch"
+    "patch": "node src/run-bot.mjs --mode=patch",
+    "audit": "node src/run-bot.mjs --mode=audit"
   },
   "dependencies": {
     "adm-zip": "^0.5.16",
