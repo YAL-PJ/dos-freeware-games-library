@@ -174,6 +174,10 @@ npm run patch
 npm run audit
 ```
 
+The patch command unpacks self-extracting launchers. ZIP-based ones are read directly; LHA, RAR and ARJ ones need `7z` on the PATH (preinstalled on GitHub-hosted runners) and are skipped with a warning without it. Archives that a batch file runs itself are left in place.
+
+`library-bot/seeds/unplayable-overrides.json` lists bundles confirmed broken in js-dos that the automatic checks cannot detect, keyed by id with the reason. The builder and `npm run audit` mark them `unplayable`.
+
 The runner also accepts environment overrides for catalog, work, distribution, catalog output, repository, bundle directory, and bundle-base paths: `CPLAY_CATALOG_PATH`, `CPLAY_WORK_DIR`, `CPLAY_DIST_DIR`, `CPLAY_LIBRARY_JSON`, `CPLAY_LIBRARY_REPO_PATH`, `CPLAY_BUNDLES_DIR`, and `CPLAY_BUNDLE_BASE_URL`.
 
 Review generated diffs before committing. In particular, the patch command rewrites bundle archives in place and a failed scrape may cause the starter seed to become the input to a full run.

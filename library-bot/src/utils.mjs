@@ -43,13 +43,15 @@ const NON_GAME_STEM = new RegExp("^(" + [
   "sndtest", "uninstall", "uninst", "patch", "update", "bootdisk", "vdetect",
   "loadpats", "_isdel", "commit", "makeeval",
   // documentation, catalogs, order forms
-  "read", "readme", "read_me", "readthis", "help\\w*", "manual", "doc",
+  "read\\w*", "help\\w*", "manual", "doc",
   "docs", "casdoc", "info", "demoinfo", "vinfo", "vendor", "catalog",
   "lomaxcat", "order", "register", "regist", "dealers", "list", "view",
   "t17view",
   // archivers and runtimes that need a program argument
   "unzip", "pkunzip", "lha", "deice", "unpack", "brun\\d*", "dos4gw", "dos4gx",
   "dos32a", "cwsdpmi", "ultramid", "delscore",
+  // modem/network/multiplayer helpers and batch utilities
+  "comio", "modem", "netb\\w*", "ipx", "ipxodi", "ipxsetup", "serial", "choice",
   // level/graphics editors and build scripts
   "\\w*edit", "\\w*editor", "make\\w*",
 ].join("|") + ")$", "i");

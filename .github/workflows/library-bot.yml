@@ -31,6 +31,13 @@ jobs:
           CPLAY_BUNDLE_BASE_URL: https://raw.githubusercontent.com/YAL-PJ/dos-freeware-games-library/main/bundles
         run: npm --prefix library-bot run run
 
+      # Unpack self-extracting archives (7z reads LHA/RAR/ARJ), fix launchers in
+      # new bundles, then hide bundles that still cannot start a DOS game.
+      - name: Patch bundles and audit playability
+        run: |
+          npm --prefix library-bot run patch
+          npm --prefix library-bot run audit
+
       - name: Commit updates
         run: |
           git config user.name "github-actions[bot]"

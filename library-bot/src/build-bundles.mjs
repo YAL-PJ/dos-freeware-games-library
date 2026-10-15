@@ -1,14 +1,21 @@
 import fs from "node:fs/promises";
+import fsSync from "node:fs";
 import path from "node:path";
 import AdmZip from "adm-zip";
 import { downloadBuffer, ensureDir, writeJson, detectLauncher, isPlayableLauncher } from "./utils.mjs";
 import { inspectBundle } from "./inspect-bundle.mjs";
 
+// Bundles confirmed broken in js-dos that the automatic checks cannot detect
+// (e.g. data that only an installer can unpack). Keyed by id, value = reason.
+const UNPLAYABLE_OVERRIDES = JSON.parse(fsSync.readFileSync(
+  new URL("../seeds/unplayable-overrides.json", import.meta.url), "utf8"));
+
 // Manifest record for an entry whose bundle file exists. Bundles that cannot
 // start a DOS game (no launcher, missing file, Windows program) stay in the
 // repo but are listed as info-only, so players never get a dead launch.
 export function bundledEntry(entry, bundleName, bundlePath) {
-  const { playable, reason } = inspectBundle(bundlePath);
+  const override = UNPLAYABLE_OVERRIDES[entry.id];
+  const { playable, reason } = override ? { playable: false, reason: override } : inspectBundle(bundlePath);
   if (!playable) {
     return { ...entry, bundleName, bundlePath, metadataOnly: true, status: "unplayable", failureReason: reason };
   }

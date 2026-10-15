@@ -1,5 +1,8 @@
 import fs from "node:fs/promises";
+import fsSync from "node:fs";
+import os from "node:os";
 import path from "node:path";
+import { execFileSync } from "node:child_process";
 import AdmZip from "adm-zip";
 import { detectLauncher, isPlayableLauncher } from "./utils.mjs";
 
@@ -44,6 +47,53 @@ function readSfxEntries(buf) {
   }
 }
 
+// LHA, RAR and ARJ self-extractors print their banner from the DOS stub, so
+// the text sits near the start of the file. Running one in DOSBox only
+// unpacks the game and exits.
+const OTHER_SFX_BANNER = /LHA.s SFX|LHarc.s SFX|LHA SFX|RAR SFX|RAR self-extract|ARJ.?SFX|ARJ self-extract/i;
+
+function looksLikeOtherSfx(buf) {
+  return buf.length >= 64 && buf[0] === 0x4d && buf[1] === 0x5a &&
+    OTHER_SFX_BANNER.test(buf.subarray(0, Math.min(buf.length, 65536)).toString("latin1"));
+}
+
+let warnedNo7z = false;
+
+// Extract an LHA/RAR/ARJ SFX with 7-Zip (preinstalled on GitHub runners).
+// Returns entries shaped like AdmZip's, or null when 7z is missing or fails.
+function read7zEntries(buf) {
+  const tmp = fsSync.mkdtempSync(path.join(os.tmpdir(), "sfx-"));
+  try {
+    const archive = path.join(tmp, "archive.exe");
+    const outDir = path.join(tmp, "out");
+    fsSync.writeFileSync(archive, buf);
+    execFileSync("7z", ["x", "-y", `-o${outDir}`, archive], { stdio: "ignore" });
+    const entries = [];
+    const walk = rel => {
+      for (const dirent of fsSync.readdirSync(path.join(outDir, rel), { withFileTypes: true })) {
+        const childRel = rel ? `${rel}/${dirent.name}` : dirent.name;
+        if (dirent.isDirectory()) {
+          entries.push({ entryName: `${childRel}/`, isDirectory: true, getData: () => Buffer.alloc(0) });
+          walk(childRel);
+        } else {
+          const data = fsSync.readFileSync(path.join(outDir, childRel));
+          entries.push({ entryName: childRel, isDirectory: false, getData: () => data });
+        }
+      }
+    };
+    walk("");
+    return entries.some(e => !e.isDirectory) ? entries : null;
+  } catch (err) {
+    if (err.code === "ENOENT" && !warnedNo7z) {
+      console.warn("[patcher] 7z not found; skipping LHA/RAR/ARJ self-extractors");
+      warnedNo7z = true;
+    }
+    return null;
+  } finally {
+    fsSync.rmSync(tmp, { recursive: true, force: true });
+  }
+}
+
 // Predict whether unpacking an SFX would yield a playable bundle. Without this
 // check we'd happily unpack installers like Blood's SFX-wrapped INSTALL.EXE,
 // trading one broken state for another. The launcher detector is run against
@@ -68,7 +118,8 @@ function wouldYieldPlayableLauncher(zip, sfxEntry, innerEntries) {
   return isPlayableLauncher(detectLauncher(gamePaths));
 }
 
-// Unpack every self-extracting ZIP EXE found under GAME/. Inner files are placed
+// Unpack every self-extracting EXE (ZIP, or LHA/RAR/ARJ via 7z) found under
+// GAME/. Inner files are placed
 // alongside the SFX (same directory), the SFX itself is removed. Returns true
 // when at least one SFX was unpacked. SFX archives whose contents only contain
 // installers/utilities are left alone — unpacking them wouldn't make the bundle
@@ -82,11 +133,23 @@ function unpackSfxArchives(zip) {
 
   let unpacked = false;
 
+  // DOS Games Archive launch scripts often run an SFX themselves ("if exist
+  // DEMO\DEMO.BAT goto run", then UW_DEMO.EXE). Those must stay in place.
+  const batText = zip.getEntries()
+    .filter(e => !e.isDirectory && e.entryName.toLowerCase().endsWith(".bat"))
+    .map(e => e.getData().toString("latin1").toLowerCase())
+    .join("\n");
+  const usedByBat = entry => {
+    const base = entry.entryName.slice(entry.entryName.lastIndexOf("/") + 1).toLowerCase();
+    const stem = base.replace(/\.exe$/, "");
+    return new RegExp(`(^|[\\s\\\\/])${stem.replace(/[^a-z0-9]/g, c => "\\" + c)}(\\.exe)?(\\s|$)`, "m").test(batText);
+  };
+
   for (const entry of candidates) {
     const data = entry.getData();
-    if (!looksLikeSfxZip(data)) continue;
-
-    const inner = readSfxEntries(data);
+    const inner = looksLikeSfxZip(data) ? readSfxEntries(data)
+      : looksLikeOtherSfx(data) && !usedByBat(entry) ? read7zEntries(data)
+      : null;
     if (!inner) continue;
 
     if (!wouldYieldPlayableLauncher(zip, entry, inner)) continue;
@@ -196,10 +259,12 @@ export async function patchBundles({ bundlesDir, dosboxTemplatePath }) {
     try {
       const zip = new AdmZip(filePath);
 
-      // 0. Unpack any self-extracting ZIP installers shipped as the launcher.
+      // 0. Unpack any self-extracting archives (ZIP, LHA, RAR, ARJ) shipped as the launcher.
       // These show up as "MZ...PK\x05\x06" — DOSBox can't run them, so we have
       // to place the inner game files into the bundle ourselves.
-      if (unpackSfxArchives(zip)) {
+      // Repeat for archives nested inside archives (e.g. COMPRESS.EXE inside
+      // MECH2DEM.EXE), bounded in case an archive contains itself.
+      for (let pass = 0; pass < 5 && unpackSfxArchives(zip); pass++) {
         changed = true;
       }
 
@@ -252,13 +317,17 @@ export async function patchBundles({ bundlesDir, dosboxTemplatePath }) {
       });
       neededDirs.forEach(dir => {
         if (!existingPaths.has(dir)) {
+          const before = zip.getEntries().length;
           zip.addFile(dir, Buffer.alloc(0));
-          changed = true;
+          // AdmZip ignores the add for some archives; only count real changes
+          // so those bundles aren't rewritten on every run.
+          if (zip.getEntries().length > before) changed = true;
         }
       });
 
       if (changed) {
         zip.writeZip(filePath);
+        console.log(`[patcher] patched ${file}`);
         patched++;
       } else {
         skipped++;
