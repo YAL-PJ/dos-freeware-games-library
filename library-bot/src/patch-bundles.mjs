@@ -92,11 +92,11 @@ function unpackSfxArchives(zip) {
     if (!wouldYieldPlayableLauncher(zip, entry, inner)) continue;
 
     const baseDir = entry.entryName.slice(0, entry.entryName.lastIndexOf("/") + 1);
-    // The SFX itself is about to be removed, so an inner file with the same
-    // name (e.g. DARKHOUR.EXE inside DARKHOUR.EXE) must still be extracted.
-    const existing = new Set(zip.getEntries()
-      .filter(e => e.entryName !== entry.entryName)
-      .map(e => e.entryName.toLowerCase()));
+    // Remove the SFX first so an inner file with the same name (e.g.
+    // DARKHOUR.EXE inside DARKHOUR.EXE) is extracted rather than skipped or
+    // deleted along with it.
+    zip.deleteFile(entry.entryName);
+    const existing = new Set(zip.getEntries().map(e => e.entryName.toLowerCase()));
 
     for (const innerEntry of inner) {
       const safeName = innerEntry.entryName.replace(/^\/+/, "").replace(/\\/g, "/");
@@ -113,7 +113,6 @@ function unpackSfxArchives(zip) {
       existing.add(targetPath.toLowerCase());
     }
 
-    zip.deleteFile(entry.entryName);
     unpacked = true;
   }
 
