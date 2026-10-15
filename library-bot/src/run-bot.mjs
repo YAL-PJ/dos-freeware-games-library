@@ -1,7 +1,8 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { scrapeDosGamesArchive } from "./scrape-dosgames.mjs";
-import { buildBundles } from "./build-bundles.mjs";
+import fs from "node:fs";
+import { buildBundles, bundledEntry } from "./build-bundles.mjs";
 import { generateLibraryJson } from "./generate-library-json.mjs";
 import { publishBundlesToRepo } from "./publish-library-repo.mjs";
 import { patchBundles } from "./patch-bundles.mjs";
@@ -29,6 +30,21 @@ async function run() {
   // Patch mode: update dosbox.conf in all existing bundles without re-downloading
   if (mode === "patch") {
     await patchBundles({ bundlesDir, dosboxTemplatePath });
+    return;
+  }
+
+  // Audit mode: re-check every committed bundle and mark the ones that cannot
+  // start a DOS game as info-only, without scraping or downloading.
+  if (mode === "audit") {
+    const existing = await readJson(libraryOutputPath, []);
+    const manifest = existing.map(entry => {
+      const bundleName = `${entry.id}.jsdos`;
+      const bundlePath = path.join(bundlesDir, bundleName);
+      return fs.existsSync(bundlePath) ? bundledEntry(entry, bundleName, bundlePath) : entry;
+    });
+    const library = await generateLibraryJson({ manifest, outputPath: libraryOutputPath, bundleBaseUrl });
+    console.log(`[bot] audit: ${library.filter(e => !e.metadataOnly).length} playable, ` +
+      `${manifest.filter(e => e.status === "unplayable").length} unplayable`);
     return;
   }
 
