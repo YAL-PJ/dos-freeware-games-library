@@ -50,8 +50,8 @@ const NON_GAME_STEM = new RegExp("^(" + [
   // archivers and runtimes that need a program argument
   "unzip", "pkunzip", "lha", "deice", "unpack", "brun\\d*", "dos4gw", "dos4gx",
   "dos32a", "cwsdpmi", "ultramid", "delscore",
-  // level/graphics editors, build scripts and Windows 95 builds
-  "\\w*edit", "\\w*editor", "make\\w*", "\\w*95",
+  // level/graphics editors and build scripts
+  "\\w*edit", "\\w*editor", "make\\w*",
 ].join("|") + ")$", "i");
 
 // Program and batch names commonly used as the game's own launcher.
@@ -59,7 +59,10 @@ const PREFERRED_STEMS = ["start", "play", "go", "run", "game"];
 
 const stemOf = name => name.replace(/\.[^.]*$/, "").toLowerCase();
 const extOf = name => (name.match(/\.([^.]*)$/)?.[1] || "").toLowerCase();
-const isNonGame = name => NON_GAME_STEM.test(stemOf(name));
+// Windows 95 builds (MDKDEM95.EXE, HOSP95.EXE) do not run under DOS; batch
+// files named like SOCCER95.BAT are ordinary DOS launchers.
+const isNonGame = name => NON_GAME_STEM.test(stemOf(name)) ||
+  (extOf(name) === "exe" && /95$/.test(stemOf(name)));
 
 // DOSBox only exposes 8.3 names to DOS programs. Long names are shown as
 // their first six characters plus "~1"; this mirrors that for the first
