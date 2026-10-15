@@ -33,97 +33,153 @@ export function isLegalLicense(value = "") {
   return LEGAL_LICENSES.has(normalizeLicense(value));
 }
 
-// Executables that are utilities/runtimes, not the game itself.
-const NON_GAME_EXES = new Set([
-  "setup.exe", "install.exe", "installer.exe",
-  "config.exe", "conf.exe", "configure.exe",
-  "uninstall.exe", "uninst.exe",
-  "patch.exe", "update.exe",
-  // DOS extenders and runtime loaders — must be invoked with a game exe as argument
-  "dos4gw.exe", "dos4gx.exe", "dos32a.exe",
-  "cwsdpmi.exe", "dpmi16bi.ovl",
-  // Misc utilities commonly bundled with games
-  "uvconfig.exe", "setsound.exe", "sound.exe",
-]);
+// Program names (without extension) that are utilities, documentation
+// viewers, installers or runtimes rather than the game itself. Matched
+// against both executables and batch files.
+const NON_GAME_STEM = new RegExp("^(" + [
+  // installers / setup / sound configuration
+  "install", "installer", "0install", "dinstall", "minst", "setup", "setmain",
+  "config", "conf", "configure", "uvconfig", "sbconfig", "setsound", "sound",
+  "sndtest", "uninstall", "uninst", "patch", "update", "bootdisk", "vdetect",
+  "loadpats", "_isdel", "commit", "makeeval",
+  // documentation, catalogs, order forms
+  "read", "readme", "read_me", "readthis", "help\\w*", "manual", "doc",
+  "docs", "casdoc", "info", "demoinfo", "vinfo", "vendor", "catalog",
+  "lomaxcat", "order", "register", "regist", "dealers", "list", "view",
+  "t17view",
+  // archivers and runtimes that need a program argument
+  "unzip", "pkunzip", "lha", "deice", "unpack", "brun\\d*", "dos4gw", "dos4gx",
+  "dos32a", "cwsdpmi", "ultramid", "delscore",
+  // level/graphics editors and build scripts
+  "\\w*edit", "\\w*editor", "make\\w*",
+].join("|") + ")$", "i");
 
-// Batch files that launch documentation/utilities, not the game itself.
-const NON_GAME_BATS = new Set([
-  "help.bat", "readme.bat", "manual.bat", "docs.bat", "doc.bat",
-  "install.bat", "setup.bat", "config.bat", "configure.bat",
-  "uninstall.bat", "sound.bat", "setsound.bat",
-]);
+// Program and batch names commonly used as the game's own launcher.
+const PREFERRED_STEMS = ["start", "play", "go", "run", "game"];
 
-function pickExe(files) {
-  const lc = s => s.toLowerCase();
-  return files.find(f => lc(f).endsWith(".exe") && !NON_GAME_EXES.has(lc(f)))
-    || files.find(f => lc(f).endsWith(".exe"));
+const stemOf = name => name.replace(/\.[^.]*$/, "").toLowerCase();
+const extOf = name => (name.match(/\.([^.]*)$/)?.[1] || "").toLowerCase();
+// Windows 95 builds (MDKDEM95.EXE, HOSP95.EXE) do not run under DOS; batch
+// files named like SOCCER95.BAT are ordinary DOS launchers.
+const isNonGame = name => NON_GAME_STEM.test(stemOf(name)) ||
+  (extOf(name) === "exe" && /95$/.test(stemOf(name)));
+
+// DOSBox only exposes 8.3 names to DOS programs. Long names are shown as
+// their first six characters plus "~1"; this mirrors that for the first
+// (usually only) entry with a given prefix, which is enough for `cd` and
+// launching programs from the generated autoexec.
+export function toDosName(name) {
+  const clean = s => s.toUpperCase().replace(/[^A-Z0-9_\-!#$%&'(){}@^`~]/g, "");
+  const dot = name.lastIndexOf(".");
+  const stem = dot > 0 ? name.slice(0, dot) : name;
+  const ext = dot > 0 ? name.slice(dot + 1) : "";
+  const fits = stem.length <= 8 && ext.length <= 3 && clean(stem) === stem.toUpperCase() && clean(ext) === ext.toUpperCase();
+  if (fits) return name.toUpperCase();
+  const shortExt = clean(ext).slice(0, 3);
+  return clean(stem).slice(0, 6) + "~1" + (shortExt ? "." + shortExt : "");
 }
 
-function pickBat(files) {
-  const lc = s => s.toLowerCase();
-  return files.find(f => lc(f).endsWith(".bat") && !NON_GAME_BATS.has(lc(f)))
-    || files.find(f => lc(f).endsWith(".bat"));
+// True when a program name looks like it belongs to this game, e.g. SEEK.EXE
+// for "seek-and-destroy" or SRACER.EXE for "street-racer".
+function matchesGameId(name, gameId) {
+  if (!gameId) return false;
+  const stem = stemOf(name).replace(/[^a-z0-9]/g, "");
+  const words = gameId.toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+  const compact = words.join("");
+  const initials = words.map(w => w[0]).join("");
+  if ((initials.length >= 2 && stem === initials) || words.includes(stem)) return true;
+  // Short stems (PRE.COM, SF.EXE) match too many ids by prefix alone.
+  if (stem.length < 4) return false;
+  return compact.startsWith(stem) || stem.startsWith(compact) ||
+    words.some(w => w.length >= 4 && stem.startsWith(w));
 }
 
-function pickCom(files) {
-  const lc = s => s.toLowerCase();
-  return files.find(f => lc(f).endsWith(".com"));
+// A batch file is not a usable launcher when it only prints text (e.g.
+// "Please type: demo") or bails out to a usage message without arguments
+// (e.g. LEMMINGS.BAT expecting "vga"/"ega").
+function isUnusableBat(content) {
+  if (/^\s*if\s+(not\s+)?"?%1[^=\s]*"?\s*==\s*"?[^"\s%]*"?\s+goto\s+:?(usage|help|syntax|error|err|noparm\w*|instr\w*)\b/im.test(content)) return true;
+  return !content.split(/\r?\n/).some(line => {
+    const t = line.trim().replace(/^@/, "").toLowerCase();
+    return t && !/^(echo\b|echo\.|rem\b|::|cls\b|pause\b|ctty\b)/.test(t);
+  });
+}
+
+// Picks the best launcher among the files of one directory, or null.
+// readFile(relativePath) optionally returns a batch file's text.
+function pickLauncher(dir, files, gameId, readFile) {
+  const usableBat = f => {
+    if (extOf(f) !== "bat" || !readFile) return true;
+    const content = readFile(dir ? `${dir}/${f}` : f);
+    return content == null || !isUnusableBat(content);
+  };
+  const runnable = files.filter(f => ["bat", "exe", "com"].includes(extOf(f)) && !isNonGame(f) && usableBat(f));
+  const bats = runnable.filter(f => extOf(f) === "bat");
+  const programs = runnable.filter(f => extOf(f) !== "bat");
+
+  // DOS Games Archive browser-specific launcher (e.g. WC1WEB.BAT, 0G-BRW.BAT)
+  const webBat = bats.find(f => /(web|-brw)$/.test(stemOf(f)));
+  if (webBat) return { file: webBat, bat: true };
+  for (const name of PREFERRED_STEMS) {
+    const bat = bats.find(f => stemOf(f) === name);
+    if (bat) return { file: bat, bat: true };
+  }
+  const namedBat = bats.find(f => matchesGameId(f, gameId));
+  if (namedBat) return { file: namedBat, bat: true };
+  if (bats.length) return { file: bats[0], bat: true };
+
+  // .exe before .com: small .com files are often loaders or helpers.
+  const ordered = [...programs.filter(f => extOf(f) === "exe"), ...programs.filter(f => extOf(f) === "com")];
+  const exes = ordered.filter(f => extOf(f) === "exe");
+  const named = (exes.length ? exes : ordered).find(f => matchesGameId(f, gameId));
+  if (named) return { file: named, bat: false };
+  const preferred = PREFERRED_STEMS.map(n => ordered.find(f => stemOf(f) === n)).find(Boolean);
+  if (preferred) return { file: preferred, bat: false };
+  if (ordered.length) return { file: ordered[0], bat: false };
+  return null;
+}
+
+function launcherLines(dir, pick) {
+  const lines = [];
+  if (dir) lines.push(`cd ${dir.split("/").map(toDosName).join("\\")}`);
+  const prog = toDosName(pick.file);
+  lines.push(pick.bat ? `call ${prog}` : prog);
+  return lines;
 }
 
 /**
  * Given file paths relative to the GAME/ directory, finds the best launcher.
  * Returns an array of dosbox autoexec lines (e.g. ["cd SUB", "GAME.EXE"]).
  *
- * Priority:
- *  1. *web.bat at root  — DOS Games Archive browser-specific launcher
- *  2. start.bat at root — common convention
- *  3. Any other .bat at root (skipping known help/setup/doc bats)
- *  4. Game .exe at root (skipping known utility/runtime exes)
- *  5. .com at root
- *  6. Repeat 1-5 for each subdirectory
+ * Directories are searched shallowest first. Within a directory:
+ *  1. *web.bat — DOS Games Archive browser-specific launcher
+ *  2. start/play/go/run/game.bat
+ *  3. a .bat named after the game, then any other game .bat
+ *  4. an .exe (then .com) named after the game, then start/play/go/run/game,
+ *     then any other game .exe/.com
+ * Readme viewers, catalogs, installers, setup and runtime programs are
+ * skipped, as are batch files that readFile shows to be unusable. When nothing else exists, the first such program is returned so
+ * isPlayableLauncher() can reject it.
  */
-export function detectLauncher(filePaths) {
-  const lc = s => s.toLowerCase();
-  const rootFiles = filePaths.filter(f => !f.includes("/"));
+export function detectLauncher(filePaths, gameId = "", readFile = null) {
+  const byDir = new Map();
+  for (const f of filePaths) {
+    const i = f.lastIndexOf("/");
+    const dir = i < 0 ? "" : f.slice(0, i);
+    if (!byDir.has(dir)) byDir.set(dir, []);
+    byDir.get(dir).push(f.slice(i + 1));
+  }
+  const dirs = [...byDir.keys()].sort((a, b) =>
+    (a ? a.split("/").length : 0) - (b ? b.split("/").length : 0));
 
-  // Prefer browser-optimised batch file (e.g. WC1WEB.BAT, WAR2WEB.BAT)
-  const webBat = rootFiles.find(f => lc(f).endsWith("web.bat"));
-  if (webBat) return [`call ${webBat.toUpperCase()}`];
+  for (const dir of dirs) {
+    const pick = pickLauncher(dir, byDir.get(dir), gameId, readFile);
+    if (pick) return launcherLines(dir, pick);
+  }
 
-  if (rootFiles.some(f => lc(f) === "start.bat")) return ["call START.BAT"];
-
-  // Any other .bat at root (prefer game launchers over help/setup/doc bats)
-  const rootBat = pickBat(rootFiles);
-  if (rootBat) return [`call ${rootBat.toUpperCase()}`];
-
-  const rootExe = pickExe(rootFiles);
-  if (rootExe) return [rootExe.toUpperCase()];
-  const rootCom = pickCom(rootFiles);
-  if (rootCom) return [rootCom.toUpperCase()];
-
-  const subdirs = [...new Set(
-    filePaths.filter(f => f.includes("/")).map(f => f.split("/")[0])
-  )];
-
-  for (const sub of subdirs) {
-    const subFiles = filePaths
-      .filter(f => f.startsWith(sub + "/"))
-      .map(f => f.slice(sub.length + 1))
-      .filter(f => !f.includes("/"));
-
-    const subWebBat = subFiles.find(f => lc(f).endsWith("web.bat"));
-    if (subWebBat) return [`cd ${sub.toUpperCase()}`, `call ${subWebBat.toUpperCase()}`];
-
-    if (subFiles.some(f => lc(f) === "start.bat"))
-      return [`cd ${sub.toUpperCase()}`, "call START.BAT"];
-
-    const subBat = pickBat(subFiles);
-    if (subBat) return [`cd ${sub.toUpperCase()}`, `call ${subBat.toUpperCase()}`];
-
-    const subExe = pickExe(subFiles);
-    if (subExe) return [`cd ${sub.toUpperCase()}`, subExe.toUpperCase()];
-    const subCom = pickCom(subFiles);
-    if (subCom) return [`cd ${sub.toUpperCase()}`, subCom.toUpperCase()];
+  for (const dir of dirs) {
+    const fallback = byDir.get(dir).find(f => ["bat", "exe", "com"].includes(extOf(f)));
+    if (fallback) return launcherLines(dir, { file: fallback, bat: extOf(fallback) === "bat" });
   }
 
   return ["echo Could not auto-detect launcher. Type DIR to see files."];
@@ -138,20 +194,14 @@ export function detectLauncher(filePaths) {
  */
 export function isPlayableLauncher(launcherLines) {
   if (!launcherLines || !launcherLines.length) return false;
-  const lastLine = launcherLines[launcherLines.length - 1].trim().toLowerCase();
+  const lastLine = launcherLines[launcherLines.length - 1].trim();
 
   // detectLauncher() fell through with no match at all
-  if (lastLine.startsWith("echo ")) return false;
+  if (/^echo\s/i.test(lastLine)) return false;
 
-  // Fallback picked an installer/utility exe (e.g. INSTALL.EXE, SETUP.EXE)
-  const exeMatch = lastLine.match(/^(\S+\.exe)$/);
-  if (exeMatch && NON_GAME_EXES.has(exeMatch[1])) return false;
-
-  // Fallback picked an installer/utility bat (e.g. INSTALL.BAT, SETUP.BAT)
-  const batMatch = lastLine.match(/^(?:call\s+)?(\S+\.bat)$/);
-  if (batMatch && NON_GAME_BATS.has(batMatch[1])) return false;
-
-  return true;
+  // Fallback picked an installer/utility program
+  const program = lastLine.replace(/^call\s+/i, "").split(/\s+/)[0];
+  return !isNonGame(program);
 }
 
 export async function fetchHtml(url) {

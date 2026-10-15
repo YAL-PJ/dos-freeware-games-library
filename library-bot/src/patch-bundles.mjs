@@ -92,6 +92,10 @@ function unpackSfxArchives(zip) {
     if (!wouldYieldPlayableLauncher(zip, entry, inner)) continue;
 
     const baseDir = entry.entryName.slice(0, entry.entryName.lastIndexOf("/") + 1);
+    // Remove the SFX first so an inner file with the same name (e.g.
+    // DARKHOUR.EXE inside DARKHOUR.EXE) is extracted rather than skipped or
+    // deleted along with it.
+    zip.deleteFile(entry.entryName);
     const existing = new Set(zip.getEntries().map(e => e.entryName.toLowerCase()));
 
     for (const innerEntry of inner) {
@@ -109,7 +113,6 @@ function unpackSfxArchives(zip) {
       existing.add(targetPath.toLowerCase());
     }
 
-    zip.deleteFile(entry.entryName);
     unpacked = true;
   }
 
@@ -162,64 +165,6 @@ function patchBatContent(content) {
 }
 
 /**
- * For old-style WEB.BATs that use the bare 'scaler X' command, inline the
- * commands from the SH.BAT they chain to (translating bare DOSBox commands
- * to config -set form, dropping cls/pause).
- *
- * WEB.BATs that already use 'config -set render scaler=...' are left alone.
- */
-function resolveWebBat(zip, rawLines) {
-  if (rawLines.length !== 1) return rawLines;
-  const line = rawLines[0];
-  if (!/^call .+web\.bat$/i.test(line)) return rawLines;
-
-  const webBatFile = line.slice(5);
-  const webBatEntry = findEntry(zip, `GAME/${webBatFile}`);
-  if (!webBatEntry) return rawLines;
-
-  const webContent = webBatEntry.getData().toString("utf8");
-  if (!/^\s*scaler\s+\S/mi.test(webContent)) return rawLines; // already correct
-
-  const callMatch = webContent.match(/^\s*call\s+(\S+\.bat)/mi);
-  if (!callMatch) return rawLines;
-
-  const shBatFile = callMatch[1].toUpperCase();
-  const shBatEntry = findEntry(zip, `GAME/${shBatFile}`);
-  if (!shBatEntry) {
-    return ["config -set render scaler=normal2x", `call ${shBatFile}`];
-  }
-
-  const shContent = shBatEntry.getData().toString("utf8");
-  const result = ["config -set render scaler=normal2x"];
-
-  for (const rawLine of shContent.split(/\r?\n/)) {
-    const t = rawLine.trim();
-    const lc = t.toLowerCase();
-    if (
-      !t || lc.startsWith("rem") || lc.startsWith("@") ||
-      lc === "cls" || lc === "pause" ||
-      lc.startsWith("echo") || lc === "cd.." || lc === "cd .."
-    ) continue;
-
-    const aspectMatch = t.match(/^aspect\s+(true|false)$/i);
-    if (aspectMatch) {
-      result.push(`config -set render aspect=${aspectMatch[1].toLowerCase()}`);
-      continue;
-    }
-    if (/^cycles\s+/i.test(t)) {
-      const rest = t.replace(/^cycles\s+/i, "").replace(/%%/g, "%");
-      result.push(`config -set cpu "cycles=${rest}"`);
-      continue;
-    }
-    if (/^cd\s+\S/i.test(t) || /\.(exe|com)(\s|$)/i.test(t) || /^loadfix\s/i.test(t)) {
-      result.push(t.toUpperCase());
-    }
-  }
-
-  return result;
-}
-
-/**
  * Patches every existing .jsdos bundle in-place:
  *  1. Detects the game launcher from GAME/ file listing.
  *  2. Writes a new dosbox.conf with the exact launcher command.
@@ -267,9 +212,11 @@ export async function patchBundles({ bundlesDir, dosboxTemplatePath }) {
         .map(e => e.entryName.slice("GAME/".length))
         .filter(Boolean);
 
-      const rawLines = detectLauncher(gamePaths);
-      const launcherLines = resolveWebBat(zip, rawLines);
-      const newConf = buildConf(templateBase, launcherLines);
+      const readGameFile = rel => findEntry(zip, `GAME/${rel}`)?.getData().toString("latin1") ?? null;
+      const rawLines = detectLauncher(gamePaths, path.basename(file, ".jsdos"), readGameFile);
+      // WEB.BATs are called as-is: step 3 below translates their bare DOSBox
+      // commands, and inlining them into autoexec dropped labels and programs.
+      const newConf = buildConf(templateBase, rawLines);
 
       // 2. Update dosbox.conf
       const confEntry = zip.getEntry(".jsdos/dosbox.conf");

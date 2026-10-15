@@ -51,7 +51,11 @@ export async function buildBundles({ catalog, distDir, workDir, dosboxTemplatePa
       sourceZip.getEntries().forEach(e => {
         if (!e.isDirectory) gamePaths.push(e.entryName.replace(/^\/+/, ""));
       });
-      const launcherLines = detectLauncher(gamePaths);
+      const readGameFile = rel => {
+        const found = sourceZip.getEntries().find(e => e.entryName.replace(/^\/+/, "").toLowerCase() === rel.toLowerCase());
+        return found ? found.getData().toString("latin1") : null;
+      };
+      const launcherLines = detectLauncher(gamePaths, entry.id, readGameFile);
 
       // Skip games that only have an installer or no detectable launcher —
       // they would crash on launch rather than running the game.
